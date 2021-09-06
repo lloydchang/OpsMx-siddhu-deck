@@ -11,7 +11,6 @@ import {
 } from '../domain';
 
 import { resourceManager } from './resources/resourceRegistry';
-import { sortEnvironments } from './utils/sortEnvironments';
 
 const RESOURCE_DIFF_LIST_MATCHER = /^(.*)\[(.*)\]$/i;
 
@@ -84,23 +83,6 @@ export class ManagedReader {
 
   public static getApplicationSummary(app: string): PromiseLike<IManagedApplicationSummary<'resources'>> {
     return REST('/managed/application').path(app).query({ entities: 'resources' }).get().then(this.decorateResources);
-  }
-
-  public static getProcessedDeliveryConfig(app: string): PromiseLike<string> {
-    return REST('/managed/application').path(app).path('config').headers({ Accept: 'application/x-yaml' }).get();
-  }
-
-  public static getRawDeliveryConfig(app: string): PromiseLike<string> {
-    return REST('/managed/application').path(app).path('config', 'raw').headers({ Accept: 'application/x-yaml' }).get();
-  }
-
-  public static getEnvironmentsSummary(app: string): PromiseLike<IManagedApplicationSummary> {
-    return REST('/managed/application')
-      .path(app)
-      .query({ entities: ['resources', 'artifacts', 'environments'], maxArtifactVersions: 30 })
-      .get()
-      .then(this.decorateResources)
-      .then(sortEnvironments);
   }
 
   public static getResourceHistory(resourceId: string): PromiseLike<IManagedResourceEventHistory> {

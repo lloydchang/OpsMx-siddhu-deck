@@ -9,7 +9,7 @@ import {
   addManagedResourceMetadataToLoadBalancers,
   addManagedResourceMetadataToSecurityGroups,
   addManagedResourceMetadataToServerGroups,
-} from './managedResourceDecorators';
+} from './externals/managedResourceDecorators';
 import { noop } from '../utils';
 
 export const MANAGED_RESOURCES_DATA_SOURCE = 'spinnaker.core.managed.dataSource';
@@ -34,18 +34,6 @@ module(MANAGED_RESOURCES_DATA_SOURCE, []).run([
       application.securityGroups.ready().then(() => addManagedResourceMetadataToSecurityGroups(application), noop);
     };
 
-    const loadEnvironments = (application: Application) => {
-      return ManagedReader.getEnvironmentsSummary(application.name);
-    };
-
-    const addEnvironments = (
-      application: Application,
-      data: IManagedApplicationSummary<'resources' | 'artifacts' | 'environments'>,
-    ) => {
-      application.isManagementPaused = data.applicationPaused;
-      return $q.when(data);
-    };
-
     ApplicationDataSourceRegistry.registerDataSource({
       key: 'managedResources',
       visible: false,
@@ -65,8 +53,6 @@ module(MANAGED_RESOURCES_DATA_SOURCE, []).run([
       icon: 'fa fa-fw fa-xs fa-code-branch',
       iconName: 'spEnvironments',
       description: 'Artifacts and environments managed by Spinnaker',
-      loader: loadEnvironments,
-      onLoad: addEnvironments,
       defaultData: {
         applicationPaused: false,
         hasManagedResources: false,

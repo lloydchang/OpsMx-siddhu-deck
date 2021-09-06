@@ -3,6 +3,169 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.62](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.61...@spinnaker/google@0.0.62) (2021-09-02)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.61](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.60...@spinnaker/google@0.0.61) (2021-08-30)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.60](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.59...@spinnaker/google@0.0.60) (2021-08-25)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.59](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.58...@spinnaker/google@0.0.59) (2021-08-20)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.58](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.57...@spinnaker/google@0.0.58) (2021-08-18)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.57](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.56...@spinnaker/google@0.0.57) (2021-08-17)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.56](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.55...@spinnaker/google@0.0.56) (2021-08-13)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.55](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.54...@spinnaker/google@0.0.55) (2021-08-10)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.54](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.53...@spinnaker/google@0.0.54) (2021-08-05)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.53](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.52...@spinnaker/google@0.0.53) (2021-08-02)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.52](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.51...@spinnaker/google@0.0.52) (2021-07-30)
+
+
+### Bug Fixes
+
+* **all:** Fix lodash global usage ([d048432](https://github.com/spinnaker/deck/commit/d048432978f0aa0bceb2b58f80ea7301de153072))
+
+
+
+
+
+## [0.0.51](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.50...@spinnaker/google@0.0.51) (2021-07-26)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.50](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.49...@spinnaker/google@0.0.50) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.49](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.47...@spinnaker/google@0.0.49) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.48](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.47...@spinnaker/google@0.0.48) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.47](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.42...@spinnaker/google@0.0.47) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.46](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.42...@spinnaker/google@0.0.46) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.45](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.42...@spinnaker/google@0.0.45) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.44](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.42...@spinnaker/google@0.0.44) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.0.43](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.42...@spinnaker/google@0.0.43) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
 ## 0.0.42 (2021-07-17)
 
 

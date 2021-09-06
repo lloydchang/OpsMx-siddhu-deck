@@ -5,9 +5,18 @@ import { Illustration } from '@spinnaker/presentation';
 
 import { ApplicationQueryError } from '../ApplicationQueryError';
 import { DeliveryConfig } from './DeliveryConfig';
-import { useFetchApplicationManagementStatusQuery, useToggleManagementMutation } from '../graphql/graphql-sdk';
+import { GitIntegration } from './GitIntegration';
+import { UnmanagedMessage } from '../UnmanagedMessage';
+import { SETTINGS } from '../../config/settings';
+import {
+  FetchApplicationManagementDataDocument,
+  useFetchApplicationManagementDataQuery,
+  useToggleManagementMutation,
+} from '../graphql/graphql-sdk';
+import { Messages } from '../messages/Messages';
 import { showModal, useApplicationContextSafe } from '../../presentation';
 import { ActionModal, IArtifactActionModalProps } from '../utils/ActionModal';
+import { getIsDebugMode } from '../utils/debugMode';
 import { MODAL_MAX_WIDTH, spinnerProps } from '../utils/defaults';
 import { useLogEvent } from '../utils/logging';
 import { Spinner } from '../../widgets';
@@ -28,20 +37,54 @@ const managementStatusToContent = {
 };
 
 export const Configuration = () => {
+  const appName = useApplicationContextSafe().name;
+  const { data, error, loading } = useFetchApplicationManagementDataQuery({
+    variables: { appName },
+    errorPolicy: 'all',
+  });
+  const logError = useLogEvent('DeliveryConfig');
+
+  React.useEffect(() => {
+    if (error) {
+      logError({ action: 'LoadingFailed', data: { error } });
+    }
+  }, [error, logError]);
+
+  if (loading || !data) {
+    return <Spinner {...spinnerProps} message="Loading configuration..." />;
+  }
+
+  if (error && !Boolean(data?.application)) {
+    return <UnmanagedMessage />;
+  }
+
+  const gitIntegration = data.application?.gitIntegration;
+  const isDebug = getIsDebugMode();
+  const config = data.application?.config;
+
   return (
     <div className="full-width">
-      <ManagementToggle />
-      <DeliveryConfig />
+      <Messages showManagementWarning={false} />
+      {error && <ApplicationQueryError hasApplicationData={Boolean(data?.application)} error={error} />}
+      <ManagementToggle isPaused={data.application?.isPaused} />
+      <DeliveryConfig config={config?.rawConfig} updatedAt={config?.updatedAt}>
+        {SETTINGS.feature.mdGitIntegration && gitIntegration && <GitIntegration {...gitIntegration} />}
+      </DeliveryConfig>
+      {isDebug && <DeliveryConfig config={config?.processedConfig} isProcessed />}
     </div>
   );
 };
 
-const ManagementToggle = () => {
-  const app = useApplicationContextSafe();
-  const appName = app.name;
+interface IManagementToggleProps {
+  isPaused?: boolean;
+}
+
+const ManagementToggle = ({ isPaused }: IManagementToggleProps) => {
+  const appName = useApplicationContextSafe().name;
   const logEvent = useLogEvent('Management');
-  const { data, error, loading, refetch } = useFetchApplicationManagementStatusQuery({ variables: { appName } });
-  const [toggleManagement, { loading: mutationInFlight }] = useToggleManagementMutation();
+  const [toggleManagement, { loading: mutationInFlight }] = useToggleManagementMutation({
+    refetchQueries: [{ query: FetchApplicationManagementDataDocument, variables: { appName } }],
+  });
 
   const onShowToggleManagementModal = React.useCallback((shouldPause: boolean) => {
     logEvent({ action: 'OpenModal', data: { shouldPause } });
@@ -50,30 +93,20 @@ const ManagementToggle = () => {
       {
         application: appName,
         onAction: async () => {
-          await toggleManagement({ variables: { application: appName, isPaused: shouldPause } });
-          refetch();
+          toggleManagement({ variables: { application: appName, isPaused: shouldPause } });
         },
         logCategory: 'Management',
-        onSuccess: refetch,
         withComment: false,
       },
       { maxWidth: MODAL_MAX_WIDTH },
     );
   }, []);
 
-  if (loading) {
-    return <Spinner {...spinnerProps} message="Loading settings..." />;
-  }
-
-  if (error) {
-    return <ApplicationQueryError hasApplicationData={Boolean(data?.application)} error={error} />;
-  }
-
-  const isPaused = Boolean(data?.application?.isPaused);
   const state = managementStatusToContent[isPaused ? 'PAUSED' : 'ENABLED'];
 
   return (
     <div>
+      <h4>Management</h4>
       <div>{state.title}</div>
       <div className="horizontal middle sp-margin-s-top">
         <button

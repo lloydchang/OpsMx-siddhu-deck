@@ -13,13 +13,34 @@ type MdApplication {
   pausedInfo: MdPausedInfo
   environments: [MdEnvironment!]!
   notifications: [MdNotification!]
+  gitIntegration: MdGitIntegration
+  config: MdConfig
+}
+
+type MdGitIntegration {
+  id: String!
+  repository: String
+  branch: String
+  isEnabled: Boolean
+  manifestPath: String
+  link: String
+}
+
+type MdConfig {
+  id: ID!
+  updatedAt: InstantTime
+  rawConfig: String
+  processedConfig: String
 }
 
 type MdEnvironment {
-  id: String!
+  id: ID!
   name: String!
   state: MdEnvironmentState!
   isPreview: Boolean
+  isDeleting: Boolean
+  gitMetadata: MdGitMetadata
+  basedOn: String
 }
 
 type MdEnvironmentState {
@@ -74,6 +95,7 @@ type MdArtifactVersionInEnvironment {
   verifications: [MdAction!]
   postDeploy: [MdAction!]
   veto: MdVersionVeto
+  isCurrent: Boolean
 }
 
 type MdVersionVeto {
@@ -185,6 +207,7 @@ type MdResource {
   artifact: MdArtifact
   displayName: String
   location: MdLocation
+  rawDefinition: String
 }
 
 type MdMoniker {
@@ -252,13 +275,27 @@ type MdAction {
 
 type Mutation @extends {
   updateConstraintStatus(payload: MdConstraintStatusPayload!): Boolean
-  toggleManagement(application: String!, isPaused: Boolean!, comment: String): Boolean
+  toggleManagement(application: ID!, isPaused: Boolean!, comment: String): Boolean
   pinArtifactVersion(payload: MdArtifactVersionActionPayload!): Boolean
   markArtifactVersionAsBad(payload: MdArtifactVersionActionPayload!): Boolean
   unpinArtifactVersion(payload: MdUnpinArtifactVersionPayload!): Boolean
   markArtifactVersionAsGood(payload: MdMarkArtifactVersionAsGoodPayload!): Boolean
   retryArtifactVersionAction(payload: MdRetryArtifactActionPayload): MdAction
   dismissNotification(payload: MdDismissNotificationPayload!): Boolean
+  updateGitIntegration(payload: MdUpdateGitIntegrationPayload): MdGitIntegration
+  toggleResourceManagement(payload: MdToggleResourceManagementPayload): Boolean
+  importDeliveryConfig(application: String!): Boolean
+}
+
+input MdToggleResourceManagementPayload {
+  id: ID!
+  isPaused: Boolean!
+}
+
+input MdUpdateGitIntegrationPayload {
+  application: String!
+  isEnabled: Boolean
+  manifestPath: String
 }
 
 input MdRetryArtifactActionPayload {
@@ -318,5 +355,6 @@ enum MdEventLevel {
 }
 
 input MdDismissNotificationPayload {
+  application: String!
   id: String!
 }

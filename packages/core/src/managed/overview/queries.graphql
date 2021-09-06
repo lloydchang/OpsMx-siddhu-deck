@@ -14,6 +14,7 @@ fragment detailedVersionFields on MdArtifactVersionInEnvironment {
   version
   createdAt
   status
+  isCurrent
   gitMetadata {
     commit
     author
@@ -76,15 +77,27 @@ fragment artifactPinnedVersionFields on MdArtifact {
   }
 }
 
+fragment baseEnvironmentFields on MdEnvironment {
+  id
+  name
+  isPreview
+  gitMetadata {
+    branch
+    pullRequest {
+      link
+    }
+  }
+  basedOn
+}
+
 query fetchApplication($appName: String!, $statuses: [MdArtifactStatusInEnvironment!]) {
   application(appName: $appName) {
     id
     name
     account
     environments {
-      id
-      name
-      isPreview
+      ...baseEnvironmentFields
+      isDeleting
       state {
         id
         artifacts {
@@ -111,6 +124,7 @@ query fetchApplication($appName: String!, $statuses: [MdArtifactStatusInEnvironm
             account
             regions
           }
+          rawDefinition
         }
       }
     }
@@ -123,8 +137,7 @@ query fetchVersionsHistory($appName: String!, $limit: Int) {
     name
     account
     environments {
-      id
-      name
+      ...baseEnvironmentFields
       state {
         id
         artifacts {
@@ -139,6 +152,7 @@ query fetchVersionsHistory($appName: String!, $limit: Int) {
             version
             createdAt
             status
+            isCurrent
             gitMetadata {
               commit
               author
@@ -152,10 +166,6 @@ query fetchVersionsHistory($appName: String!, $limit: Int) {
                 number
                 link
               }
-            }
-            lifecycleSteps {
-              type
-              status
             }
           }
           ...artifactPinnedVersionFields
@@ -255,6 +265,27 @@ query fetchNotifications($appName: String!) {
   }
 }
 
+query fetchApplicationManagementData($appName: String!) {
+  application(appName: $appName) {
+    id
+    name
+    isPaused
+    config {
+      id
+      updatedAt
+      rawConfig
+      processedConfig
+    }
+    gitIntegration {
+      id
+      repository
+      branch
+      isEnabled
+      link
+    }
+  }
+}
+
 query fetchApplicationManagementStatus($appName: String!) {
   application(appName: $appName) {
     id
@@ -267,7 +298,7 @@ mutation UpdateConstraint($payload: MdConstraintStatusPayload!) {
   updateConstraintStatus(payload: $payload)
 }
 
-mutation ToggleManagement($application: String!, $isPaused: Boolean!) {
+mutation ToggleManagement($application: ID!, $isPaused: Boolean!) {
   toggleManagement(application: $application, isPaused: $isPaused)
 }
 
@@ -291,4 +322,19 @@ mutation RetryVersionAction($payload: MdRetryArtifactActionPayload!) {
   retryArtifactVersionAction(payload: $payload) {
     ...actionDetails
   }
+}
+
+mutation UpdateGitIntegration($payload: MdUpdateGitIntegrationPayload!) {
+  updateGitIntegration(payload: $payload) {
+    id
+    isEnabled
+  }
+}
+
+mutation DismissNotification($payload: MdDismissNotificationPayload!) {
+  dismissNotification(payload: $payload)
+}
+
+mutation ImportDeliveryConfig($application: String!) {
+  importDeliveryConfig(application: $application)
 }

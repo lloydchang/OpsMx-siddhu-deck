@@ -3,6 +3,245 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.6](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.4.5...@spinnaker/titus@0.4.6) (2021-09-02)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.4.5](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.4.4...@spinnaker/titus@0.4.5) (2021-08-30)
+
+
+### Bug Fixes
+
+* **aws:** Clarify compatible target groups ([#9626](https://github.com/spinnaker/deck/issues/9626)) ([a28013b](https://github.com/spinnaker/deck/commit/a28013b8db11ad0ed288104d624cf1ea3ed19d34))
+
+
+
+
+
+## [0.4.4](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.4.3...@spinnaker/titus@0.4.4) (2021-08-30)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.4.3](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.4.2...@spinnaker/titus@0.4.3) (2021-08-25)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.4.2](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.4.1...@spinnaker/titus@0.4.2) (2021-08-20)
+
+
+### Bug Fixes
+
+* **titus:** Update props in StepPolicyAction ([#9605](https://github.com/spinnaker/deck/issues/9605)) ([f1b039c](https://github.com/spinnaker/deck/commit/f1b039cd1b4f2df750b028569b1c3f2f2925897f))
+
+
+
+
+
+## [0.4.1](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.4.0...@spinnaker/titus@0.4.1) (2021-08-20)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+# [0.4.0](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.3.2...@spinnaker/titus@0.4.0) (2021-08-18)
+
+
+### Features
+
+* **titus:** Remove constraints for scaling activities ([#9597](https://github.com/spinnaker/deck/issues/9597)) ([caab693](https://github.com/spinnaker/deck/commit/caab6939f682e7c6a0d8fa6747f3bc14d452d9a1))
+
+
+
+
+
+## [0.3.2](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.3.1...@spinnaker/titus@0.3.2) (2021-08-17)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.3.1](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.3.0...@spinnaker/titus@0.3.1) (2021-08-13)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+# [0.3.0](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.2.4...@spinnaker/titus@0.3.0) (2021-08-10)
+
+
+### Features
+
+* **core/pipeline:** Check if deploy stage has a trigger that provide… ([#9538](https://github.com/spinnaker/deck/issues/9538)) ([287cecb](https://github.com/spinnaker/deck/commit/287cecb5abf0871c1a2429d8c370470d54417cad))
+
+
+
+
+
+## [0.2.4](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.2.3...@spinnaker/titus@0.2.4) (2021-08-05)
+
+
+### Bug Fixes
+
+* **amazon/titus:** Add mode to stage view state ([#9551](https://github.com/spinnaker/deck/issues/9551)) ([a0a4eb5](https://github.com/spinnaker/deck/commit/a0a4eb52b853b510a81b8068548f0198c7c458b4))
+
+
+
+
+
+## [0.2.3](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.2.2...@spinnaker/titus@0.2.3) (2021-08-02)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.2.2](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.2.1...@spinnaker/titus@0.2.2) (2021-07-30)
+
+
+### Bug Fixes
+
+* **all:** Fix lodash global usage ([d048432](https://github.com/spinnaker/deck/commit/d048432978f0aa0bceb2b58f80ea7301de153072))
+* **build:** Upgrade uirouter/react version ([cc5004b](https://github.com/spinnaker/deck/commit/cc5004bfded32642553077346c19e34820d24ae7))
+* **titus:** Hide scaling activity length ([#9525](https://github.com/spinnaker/deck/issues/9525)) ([e2003cc](https://github.com/spinnaker/deck/commit/e2003cc1312f2144e041cfcc72bf34435854d780))
+
+
+
+
+
+## [0.2.1](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.2.0...@spinnaker/titus@0.2.1) (2021-07-27)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+# [0.2.0](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.1.4...@spinnaker/titus@0.2.0) (2021-07-26)
+
+
+### Features
+
+* **titus/serverGroup:** View server group scaling activities ([#9444](https://github.com/spinnaker/deck/issues/9444)) ([ade2b6e](https://github.com/spinnaker/deck/commit/ade2b6e808ac393de995675de39d63478abfc6f5))
+
+
+
+
+
+## [0.1.4](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.1.3...@spinnaker/titus@0.1.4) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.1.3](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.1.2...@spinnaker/titus@0.1.3) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.1.2](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.1.0...@spinnaker/titus@0.1.2) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.1.1](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.1.0...@spinnaker/titus@0.1.1) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+# [0.1.0](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.0.198...@spinnaker/titus@0.1.0) (2021-07-21)
+
+
+### Bug Fixes
+
+* **titus:** Display entryPointList if not empty ([#9493](https://github.com/spinnaker/deck/issues/9493)) ([16cf1d1](https://github.com/spinnaker/deck/commit/16cf1d1aa81dae2ef0d59a80abb280f3192eeec9))
+
+
+### Features
+
+* commit to test package bump PR creation ([#9492](https://github.com/spinnaker/deck/issues/9492)) ([d1f45b5](https://github.com/spinnaker/deck/commit/d1f45b5e5c228d359cae9450ac6f6cc80ef6f1eb))
+
+
+
+
+
+## [0.0.198](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.0.197...@spinnaker/titus@0.0.198) (2021-07-20)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.0.197](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.0.192...@spinnaker/titus@0.0.197) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.0.196](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.0.192...@spinnaker/titus@0.0.196) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.0.195](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.0.192...@spinnaker/titus@0.0.195) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.0.194](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.0.192...@spinnaker/titus@0.0.194) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
+## [0.0.193](https://github.com/spinnaker/deck/compare/@spinnaker/titus@0.0.192...@spinnaker/titus@0.0.193) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/titus
+
+
+
+
+
 ## 0.0.192 (2021-07-17)
 
 

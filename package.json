@@ -17,7 +17,7 @@
   },
   "private": true,
   "workspaces": [
-    "app/scripts/modules/app",
+    "packages/app",
     "packages/amazon",
     "packages/appengine",
     "packages/azure",
@@ -38,16 +38,18 @@
     "packages/titus"
   ],
   "scripts": {
-    "clean": "npx rimraf .awcache .cache-loader build node_modules/.cache transpiled && cd app/scripts/modules/app/ && npm run clean",
+    "clean": "npx rimraf .awcache .cache-loader build node_modules/.cache transpiled packages/*/dist packages/*/tsconfig.tsbuildinfo",
     "cleanModules": "./scripts/cleanModules.js",
     "fixup": "rm -rf node_modules && npm run cleanModules && npm run modules",
-    "build": "NODE_OPTIONS=--max_old_space_size=8192 webpack --bail --mode=production --config app/scripts/modules/app/webpack.config.js",
-    "lint": "eslint --ext js,jsx,ts,tsx app",
+    "build": "NODE_OPTIONS=--max_old_space_size=8192 webpack --bail --mode=production --config packages/app/webpack.config.js",
+    "lint": "eslint --ext js,jsx,ts,tsx packages",
     "start": "sh ./start.sh",
-    "start-dev-server": "webpack-dev-server --config app/scripts/modules/app/webpack.config.js --mode=development",
+    "start-dev-server": "webpack-dev-server --config packages/app/webpack.config.js --mode=development",
+    "dev:experimental": "cd packages/app && npm run dev:experimental",
     "test": "karma start",
     "modules": "./scripts/buildModules.js",
-    "prettier": "prettier --write 'app/**/*.{js,jsx,ts,tsx,html,css,less}'",
+    "prettier": "prettier --write 'packages/**/*.{js,jsx,ts,tsx,html,css,less}'",
+    "prettier:check": "prettier --check 'packages/**/*.{js,jsx,ts,tsx,html,css,less}'",
     "functional": "npm run build && cd test/functional && yarn && npm run test",
     "functional:debug": "npm run build && cd test/functional && yarn && npm run open",
     "storybook": "start-storybook -p 9001",
@@ -88,7 +90,7 @@
   "resolutionsPurpose": "This temporarily chooses the right versions of these libs, which are specified in both deck AND deck-kayenta",
   "resolutions": {
     "@uirouter/react-hybrid": "1.0.2",
-    "@uirouter/react": "1.0.3",
+    "@uirouter/react": "1.0.7",
     "@uirouter/angularjs": "1.0.26",
     "@uirouter/core": "6.0.8",
     "react": "^16.14.0",
@@ -96,10 +98,10 @@
     "rxjs": "6.6.7",
     "angular": "1.6.10",
     "@types/angular": "1.6.26",
-    "typescript": "4.0.2"
+    "typescript": "4.3.5"
   },
   "lint-staged": {
-    "app/**/*.{js,jsx,ts,tsx}": "eslint --fix",
-    "app/**/*.{js,jsx,ts,tsx,html,css,less}": "prettier --write"
+    "packages/**/*.{js,jsx,ts,tsx}": "eslint --fix",
+    "packages/**/*.{js,jsx,ts,tsx,html,css,less}": "prettier --write"
   }
 }

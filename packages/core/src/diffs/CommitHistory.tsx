@@ -7,36 +7,44 @@ export interface ICommit {
   displayId: string;
   id: string;
   message: string;
-  timestamp: number;
+  timestamp: number | string;
 }
 
 export interface ICommitHistoryProps {
   commits: ICommit[];
 }
 
-export const CommitHistory = ({ commits }: ICommitHistoryProps) => (
-  <div>
-    <table className="table table-condensed">
-      <tbody>
-        <tr>
-          <th>Date</th>
-          <th>Commit</th>
-          <th>Message</th>
-          <th>Author</th>
-        </tr>
-        {commits.map((commit) => (
-          <tr key={commit.id}>
-            <td>{DateTime.fromMillis(commit.timestamp).toFormat('MM/dd')}</td>
-            <td>
-              <a target="_blank" href={commit.commitUrl}>
-                {commit.displayId}
-              </a>
-            </td>
-            <td>{commit.message.slice(0, 50)}</td>
-            <td>{commit.authorDisplayName || 'N/A'}</td>
+export const CommitHistory = ({ commits }: ICommitHistoryProps) => {
+  const formatDate = (timestamp: string | number) => {
+    return typeof timestamp === 'string'
+      ? DateTime.fromISO(timestamp).toFormat('MM/dd')
+      : DateTime.fromMillis(timestamp).toFormat('MM/dd');
+  };
+
+  return (
+    <div>
+      <table className="table table-condensed">
+        <tbody>
+          <tr>
+            <th>Date</th>
+            <th>Commit</th>
+            <th>Message</th>
+            <th>Author</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+          {commits.map((commit) => (
+            <tr key={commit.id}>
+              <td>{formatDate(commit.timestamp)}</td>
+              <td>
+                <a target="_blank" href={commit.commitUrl}>
+                  {commit.displayId}
+                </a>
+              </td>
+              <td>{commit.message.slice(0, 50)}</td>
+              <td>{commit.authorDisplayName || 'N/A'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};

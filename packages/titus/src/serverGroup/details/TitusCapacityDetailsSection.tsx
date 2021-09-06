@@ -7,10 +7,12 @@ import {
   DesiredCapacity,
   Overridable,
   ReactModal,
+  showModal,
 } from '@spinnaker/core';
-import { ITitusServerGroup } from '../../domain';
 
+import { ITitusServerGroup } from '../../domain';
 import { ITitusResizeServerGroupModalProps, TitusResizeServerGroupModal } from './resize/TitusResizeServerGroupModal';
+import { TitusScalingActivitiesModal } from './scalingActivity/TitusScalingActivitiesModal';
 
 interface ICapacityDetailsSectionProps {
   app: Application;
@@ -47,6 +49,14 @@ export class TitusCapacityDetailsSection extends React.Component<ICapacityDetail
         <div>
           <a className="clickable" onClick={resizeServerGroup}>
             Resize Server Group
+          </a>
+        </div>
+        <div>
+          <a
+            className="clickable"
+            onClick={() => showModal(TitusScalingActivitiesModal, { serverGroup }, { maxWidth: '1000px' })}
+          >
+            View Scaling Activities
           </a>
         </div>
       </>

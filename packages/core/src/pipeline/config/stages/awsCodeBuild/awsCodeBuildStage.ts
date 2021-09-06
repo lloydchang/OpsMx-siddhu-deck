@@ -1,7 +1,8 @@
 import { AwsCodeBuildExecutionDetails } from './AwsCodeBuildExecutionDetails';
 import { AwsCodeBuildStageConfig } from './AwsCodeBuildStageConfig';
 import { validate } from './AwsCodeBuildValidator';
-import { ExecutionDetailsTasks, Registry } from '../../../../index';
+import { ExecutionDetailsTasks } from '../common';
+import { Registry } from '../../../../registry';
 
 Registry.pipeline.registerStage({
   label: 'AWS CodeBuild',

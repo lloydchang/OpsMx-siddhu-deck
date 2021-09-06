@@ -3,7 +3,9 @@ import React from 'react';
 
 import { AwsCodeBuildStageForm } from './AwsCodeBuildStageForm';
 import { validate } from './AwsCodeBuildValidator';
-import { FormikStageConfig, IFormikStageConfigInjectedProps, IStage, IStageConfigProps } from '../../../../index';
+import { FormikStageConfig, IFormikStageConfigInjectedProps } from '../FormikStageConfig';
+import { IStageConfigProps } from '../common';
+import { IStage } from '../../../../domain';
 
 export function AwsCodeBuildStageConfig({ application, pipeline, stage, updateStage }: IStageConfigProps) {
   const stageWithDefaults: IStage = React.useMemo(() => {

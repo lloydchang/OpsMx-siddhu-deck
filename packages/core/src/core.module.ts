@@ -2,8 +2,6 @@
 import { module } from 'angular';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import 'jquery-ui';
-// Must come after jquery-ui - we want the bootstrap tooltip, JavaScript is fun
 import 'bootstrap/dist/js/bootstrap';
 
 import '@fortawesome/fontawesome-free/css/solid.css';
@@ -46,7 +44,7 @@ import { HELP_MODULE } from './help/help.module';
 import { INSIGHT_MODULE } from './insight/insight.module';
 import { INTERCEPTOR_MODULE } from './interceptor/interceptor.module';
 import { LOAD_BALANCER_MODULE } from './loadBalancer/loadBalancer.module';
-import { MANAGED_RESOURCE_CONFIG } from './application/config/managedResources/ManagedResourceConfig';
+import { MANAGED_RESOURCE_CONFIG } from './managed/externals/ManagedResourceConfig';
 import { MANAGED_RESOURCES_DATA_SOURCE, CORE_MANAGED_MANAGED_MODULE } from './managed';
 import { FUNCTION_MODULE } from './function/function.module';
 
@@ -70,7 +68,6 @@ import { SUBNET_MODULE } from './subnet/subnet.module';
 import { FIREWALL_LABEL_COMPONENT } from './securityGroup/label/firewallLabel.component';
 
 import { LABEL_FILTER_COMPONENT } from './cluster/filter/labelFilter.component';
-import { FILTER_SEARCH_COMPONENT } from './cluster/filter/filterSearch.component';
 
 import { WIDGETS_MODULE } from './widgets/widgets.module';
 
@@ -137,7 +134,6 @@ module(CORE_MODULE, [
   INTERCEPTOR_MODULE,
 
   LABEL_FILTER_COMPONENT,
-  FILTER_SEARCH_COMPONENT,
   LOAD_BALANCER_MODULE,
   FUNCTION_MODULE,
   MANAGED_RESOURCE_CONFIG,

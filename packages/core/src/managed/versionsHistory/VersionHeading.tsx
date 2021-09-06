@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import { sortBy, toNumber } from 'lodash';
 import React from 'react';
 
+import { getEnvTitle } from '../environmentBaseElements/BaseEnvironment';
 import {
   FetchVersionDocument,
   FetchVersionQueryVariables,
@@ -25,7 +26,6 @@ import './VersionsHistory.less';
 
 type VersionStatus = MdArtifactStatusInEnvironment;
 
-// TODO: could we have vetoed + current in the same env? unlikely
 const getEnvStatusSummary = (artifacts: HistoryArtifactVersion[]): VersionStatus => {
   // We sort from the newest to the oldest
   const sortedArtifacts = sortBy(artifacts, (artifact) => -1 * toNumber(artifact.buildNumber || 0));
@@ -55,6 +55,10 @@ const getEnvStatusSummary = (artifacts: HistoryArtifactVersion[]): VersionStatus
   return status;
 };
 
+const getIsCurrent = (artifacts: HistoryArtifactVersion[]) => {
+  return artifacts.some((artifact) => artifact.isCurrent);
+};
+
 const statusToClassName: { [key in VersionStatus]: string } = {
   APPROVED: `approved`,
   PENDING: `pending`,
@@ -62,7 +66,7 @@ const statusToClassName: { [key in VersionStatus]: string } = {
   VETOED: `vetoed`,
   PREVIOUS: `previous`,
   DEPLOYING: `deploying`,
-  SKIPPED: 'chip-outlined',
+  SKIPPED: 'skipped',
 };
 
 const statusToText: { [key in VersionStatus]: string } = {
@@ -73,6 +77,11 @@ const statusToText: { [key in VersionStatus]: string } = {
   PREVIOUS: `Previously deployed`,
   DEPLOYING: `Deploying`,
   SKIPPED: 'Skipped',
+};
+
+const secondaryStatusToIcon: { [key in VersionStatus]?: string } = {
+  VETOED: `💔`,
+  DEPLOYING: `🚢`,
 };
 
 interface IVersionHeadingProps {
@@ -112,7 +121,7 @@ export const VersionHeading = ({ group, chevron }: IVersionHeadingProps) => {
           {Object.entries(group.environments)
             .reverse()
             .map(([env, artifacts]) => (
-              <EnvironmentBadge key={env} env={env} data={artifacts} />
+              <EnvironmentBadge key={env} name={env} data={artifacts} />
             ))}
         </div>
       </div>
@@ -122,17 +131,35 @@ export const VersionHeading = ({ group, chevron }: IVersionHeadingProps) => {
 };
 
 interface IEnvironmentBadgeProps {
-  env: string;
+  name: string;
   data: VersionData['environments'][keyof VersionData['environments']];
 }
 
-const EnvironmentBadge = ({ env, data }: IEnvironmentBadgeProps) => {
-  const statusSummary = getEnvStatusSummary(data.versions);
-  const statusClassName = statusToClassName[statusSummary];
+const EnvironmentBadge = ({ name, data: { isPreview, versions, gitMetadata, isPinned } }: IEnvironmentBadgeProps) => {
+  const statusSummary = getEnvStatusSummary(versions);
+  const isCurrent = getIsCurrent(versions);
+  const statusClassName = statusToClassName[isCurrent ? 'CURRENT' : statusSummary];
+  const statusText = statusToText[statusSummary];
+  // In case that the status is different than CURRENT (e.g. when you veto the CURRENT version), we want to show that as well
+  const hasSecondaryStatus = Boolean(isCurrent && statusSummary !== 'CURRENT');
+  const secondaryIcon = hasSecondaryStatus ? secondaryStatusToIcon[statusSummary] : undefined;
   return (
-    <Tooltip delayShow={TOOLTIP_DELAY_SHOW} value={statusToText[statusSummary]}>
-      <div className={classnames('chip', statusClassName)}>
-        {data.isPinned && <Icon name="pin" size="16px" className="environment-pinned" color="black" />} {env}
+    <Tooltip
+      delayShow={TOOLTIP_DELAY_SHOW}
+      value={isCurrent && status !== 'CURRENT' ? `Current & ${statusText}` : statusText}
+    >
+      <div
+        className={classnames(
+          'EnvironmentBadge',
+          'horizontal',
+          'middle',
+          { 'preview-env': isPreview },
+          statusClassName,
+        )}
+      >
+        {isPinned && <Icon name="pin" size="16px" className="marker pinned" color="black" />}
+        {secondaryIcon && <div className={classnames('marker', statusToClassName[statusSummary])}>{secondaryIcon}</div>}
+        {getEnvTitle({ name, gitMetadata, isPreview })}
       </div>
     </Tooltip>
   );

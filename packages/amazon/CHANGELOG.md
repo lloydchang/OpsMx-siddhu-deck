@@ -3,6 +3,253 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.3](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.2...@spinnaker/amazon@0.8.3) (2021-09-02)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.8.2](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.1...@spinnaker/amazon@0.8.2) (2021-08-30)
+
+
+### Bug Fixes
+
+* **aws:** Clarify compatible target groups ([#9626](https://github.com/spinnaker/deck/issues/9626)) ([a28013b](https://github.com/spinnaker/deck/commit/a28013b8db11ad0ed288104d624cf1ea3ed19d34))
+
+
+
+
+
+## [0.8.1](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.0...@spinnaker/amazon@0.8.1) (2021-08-30)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+# [0.8.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.14...@spinnaker/amazon@0.8.0) (2021-08-25)
+
+
+### Features
+
+* **amazon/serverGroup:** Automatically check IMDSv2 on valid accounts ([#9607](https://github.com/spinnaker/deck/issues/9607)) ([7fcb843](https://github.com/spinnaker/deck/commit/7fcb843d2eefdbe074ce0426913946b651b8f2f3))
+
+
+
+
+
+## [0.7.14](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.13...@spinnaker/amazon@0.7.14) (2021-08-20)
+
+
+### Bug Fixes
+
+* **titus:** Update props in StepPolicyAction ([#9605](https://github.com/spinnaker/deck/issues/9605)) ([f1b039c](https://github.com/spinnaker/deck/commit/f1b039cd1b4f2df750b028569b1c3f2f2925897f))
+
+
+
+
+
+## [0.7.13](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.12...@spinnaker/amazon@0.7.13) (2021-08-20)
+
+
+### Bug Fixes
+
+* **amazon:** Pass in entire step policy object ([#9604](https://github.com/spinnaker/deck/issues/9604)) ([cc0a0d2](https://github.com/spinnaker/deck/commit/cc0a0d239f38ac15a44eae1df9c67fccec4806e6))
+
+
+
+
+
+## [0.7.12](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.11...@spinnaker/amazon@0.7.12) (2021-08-18)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.7.11](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.10...@spinnaker/amazon@0.7.11) (2021-08-17)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.7.10](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.9...@spinnaker/amazon@0.7.10) (2021-08-13)
+
+
+### Bug Fixes
+
+* **amazon/serverGroup:** pass serverGroup name to user data dialog ([af49c35](https://github.com/spinnaker/deck/commit/af49c35c1b0019b082bfdcc3493ef01d73b4f592))
+* **amazon/subnet:** pass input name when creating synthetic event ([ea4050f](https://github.com/spinnaker/deck/commit/ea4050f3a516224947d3fb4eeed3fd03dec94309))
+
+
+
+
+
+## [0.7.9](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.8...@spinnaker/amazon@0.7.9) (2021-08-10)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.7.8](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.7...@spinnaker/amazon@0.7.8) (2021-08-05)
+
+
+### Bug Fixes
+
+* **amazon/titus:** Add mode to stage view state ([#9551](https://github.com/spinnaker/deck/issues/9551)) ([a0a4eb5](https://github.com/spinnaker/deck/commit/a0a4eb52b853b510a81b8068548f0198c7c458b4))
+
+
+
+
+
+## [0.7.7](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.6...@spinnaker/amazon@0.7.7) (2021-08-02)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.7.6](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.5...@spinnaker/amazon@0.7.6) (2021-07-30)
+
+
+### Bug Fixes
+
+* **all:** Fix lodash global usage ([d048432](https://github.com/spinnaker/deck/commit/d048432978f0aa0bceb2b58f80ea7301de153072))
+* **build:** Upgrade uirouter/react version ([cc5004b](https://github.com/spinnaker/deck/commit/cc5004bfded32642553077346c19e34820d24ae7))
+
+
+
+
+
+## [0.7.5](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.4...@spinnaker/amazon@0.7.5) (2021-07-26)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.7.4](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.3...@spinnaker/amazon@0.7.4) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.7.3](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.2...@spinnaker/amazon@0.7.3) (2021-07-22)
+
+
+### Bug Fixes
+
+* sample commit to test publishing scripts ([#9505](https://github.com/spinnaker/deck/issues/9505)) ([5075ee1](https://github.com/spinnaker/deck/commit/5075ee1afe80fff98fa0728a323480b9712d8935))
+
+
+
+
+
+## [0.7.2](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.0...@spinnaker/amazon@0.7.2) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.7.1](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.7.0...@spinnaker/amazon@0.7.1) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+# [0.7.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.6.0...@spinnaker/amazon@0.7.0) (2021-07-21)
+
+
+### Features
+
+* commit to test package bump PR creation ([#9487](https://github.com/spinnaker/deck/issues/9487)) ([554ddc3](https://github.com/spinnaker/deck/commit/554ddc3d0ba9c0db49b4e5451afb22c2af9547cc))
+
+
+
+
+
+# [0.6.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.5.0...@spinnaker/amazon@0.6.0) (2021-07-20)
+
+
+### Features
+
+* sample amazon commit to test package publishin ([#9481](https://github.com/spinnaker/deck/issues/9481)) ([8d45c5e](https://github.com/spinnaker/deck/commit/8d45c5ef24a83905a6e6bca46889ea4323b4ae50))
+
+
+
+
+
+# [0.5.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.0.326...@spinnaker/amazon@0.5.0) (2021-07-19)
+
+
+### Features
+
+* **amazon:** sample commit to test publish PR generation ([#9462](https://github.com/spinnaker/deck/issues/9462)) ([f38438c](https://github.com/spinnaker/deck/commit/f38438c30e169b1b52d4eb46796ab93ec577780f))
+
+
+
+
+
+# [0.4.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.0.326...@spinnaker/amazon@0.4.0) (2021-07-19)
+
+
+### Features
+
+* **amazon:** sample commit to test publish PR generation ([#9462](https://github.com/spinnaker/deck/issues/9462)) ([f38438c](https://github.com/spinnaker/deck/commit/f38438c30e169b1b52d4eb46796ab93ec577780f))
+
+
+
+
+
+# [0.3.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.0.326...@spinnaker/amazon@0.3.0) (2021-07-19)
+
+
+### Features
+
+* **amazon:** sample commit to test publish PR generation ([#9462](https://github.com/spinnaker/deck/issues/9462)) ([f38438c](https://github.com/spinnaker/deck/commit/f38438c30e169b1b52d4eb46796ab93ec577780f))
+
+
+
+
+
+# [0.2.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.0.326...@spinnaker/amazon@0.2.0) (2021-07-19)
+
+
+### Features
+
+* **amazon:** sample commit to test publish PR generation ([#9462](https://github.com/spinnaker/deck/issues/9462)) ([f38438c](https://github.com/spinnaker/deck/commit/f38438c30e169b1b52d4eb46796ab93ec577780f))
+
+
+
+
+
+# [0.1.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.0.326...@spinnaker/amazon@0.1.0) (2021-07-19)
+
+
+### Features
+
+* **amazon:** sample commit to test publish PR generation ([#9462](https://github.com/spinnaker/deck/issues/9462)) ([f38438c](https://github.com/spinnaker/deck/commit/f38438c30e169b1b52d4eb46796ab93ec577780f))
+
+
+
+
+
 ## 0.0.326 (2021-07-17)
 
 

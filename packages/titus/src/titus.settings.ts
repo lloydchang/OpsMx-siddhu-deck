@@ -4,9 +4,10 @@ export interface ITitusProviderSettings extends IProviderSettings {
   defaults: {
     account?: string;
     region?: string;
+    subnetType?: string;
     iamProfile?: string;
   };
-  bakeWarning?: string;
+  scalingActivities?: string[];
 }
 
 export const TitusProviderSettings: ITitusProviderSettings = (SETTINGS.providers.titus as ITitusProviderSettings) || {

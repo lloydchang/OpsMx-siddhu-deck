@@ -3,6 +3,169 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.91](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.90...@spinnaker/kubernetes@0.0.91) (2021-09-02)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.90](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.89...@spinnaker/kubernetes@0.0.90) (2021-08-30)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.89](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.88...@spinnaker/kubernetes@0.0.89) (2021-08-25)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.88](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.87...@spinnaker/kubernetes@0.0.88) (2021-08-20)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.87](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.86...@spinnaker/kubernetes@0.0.87) (2021-08-18)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.86](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.85...@spinnaker/kubernetes@0.0.86) (2021-08-17)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.85](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.84...@spinnaker/kubernetes@0.0.85) (2021-08-13)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.84](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.83...@spinnaker/kubernetes@0.0.84) (2021-08-10)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.83](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.82...@spinnaker/kubernetes@0.0.83) (2021-08-05)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.82](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.81...@spinnaker/kubernetes@0.0.82) (2021-08-02)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.81](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.80...@spinnaker/kubernetes@0.0.81) (2021-07-30)
+
+
+### Bug Fixes
+
+* **build:** Upgrade uirouter/react version ([cc5004b](https://github.com/spinnaker/deck/commit/cc5004bfded32642553077346c19e34820d24ae7))
+
+
+
+
+
+## [0.0.80](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.79...@spinnaker/kubernetes@0.0.80) (2021-07-26)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.79](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.78...@spinnaker/kubernetes@0.0.79) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.78](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.76...@spinnaker/kubernetes@0.0.78) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.77](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.76...@spinnaker/kubernetes@0.0.77) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.76](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.71...@spinnaker/kubernetes@0.0.76) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.75](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.71...@spinnaker/kubernetes@0.0.75) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.74](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.71...@spinnaker/kubernetes@0.0.74) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.73](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.71...@spinnaker/kubernetes@0.0.73) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.0.72](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.0.71...@spinnaker/kubernetes@0.0.72) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
 ## 0.0.71 (2021-07-17)
 
 

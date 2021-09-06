@@ -1,4 +1,7 @@
 /* eslint-disable @spinnaker/import-sort */
+import jQuery from 'jquery';
+// jquery has to be first or many a test will break
+global.$ = global.jQuery = jQuery;
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -6,11 +9,8 @@ configure({ adapter: new Adapter() });
 
 Error.stackTraceLimit = Infinity;
 
-// jquery has to be first or many a test will break
-global.$ = global.jQuery = require('jquery');
-
-import './app/scripts/modules/app/src/settings';
-import './app/scripts/modules/app/src/app';
+import './packages/app/src/settings';
+import './packages/app/src/app';
 import './test/helpers/customMatchers';
 import { jasmineMockHttpSupport } from './packages/core/src/api/mock/jasmine';
 

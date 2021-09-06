@@ -34,7 +34,6 @@ build/
 dist/
 lib/
 transpiled/
-app/scripts/modules/core/src/styleguide/public/
 yarn-error.log
 *.css.d.ts
 
@@ -49,3 +48,6 @@ selenium-logs
 *.browser.log
 test/functional/cypress/videos/**/*
 test/functional/cypress/screenshots/**/*
+
+# .env.local files
+.env.local

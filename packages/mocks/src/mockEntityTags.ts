@@ -1,10 +1,10 @@
 import {
   ICreationMetadata,
   ICreationMetadataTag,
-  IEntityTagsMetadata,
+  IEntityRef,
   IEntityTag,
   IEntityTags,
-  IEntityRef,
+  IEntityTagsMetadata,
 } from '@spinnaker/core';
 
 export const mockEntityTagsMetadata: IEntityTagsMetadata = {

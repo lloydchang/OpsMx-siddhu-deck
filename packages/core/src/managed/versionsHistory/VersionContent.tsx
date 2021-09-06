@@ -57,7 +57,7 @@ const VersionInEnvironment = ({ environment, version, envPinnedVersions }: IVers
     environment,
     reference: version.reference,
     version: version.version,
-    status: version.status,
+    isCurrent: version.isCurrent,
   };
 
   return (
@@ -98,9 +98,16 @@ export const VersionContent = ({ versionData, pinnedVersions }: IVersionContentP
   const { environments, ...renderProps } = useOrderedEnvironment(ref, Object.entries(versionData.environments));
   return (
     <EnvironmentsRender {...renderProps} ref={ref}>
-      {environments.map(([env, { versions }]) => {
+      {environments.map(([env, { versions, isPreview, basedOn, gitMetadata }]) => {
         return (
-          <BaseEnvironment key={env} title={env} size="small">
+          <BaseEnvironment
+            key={env}
+            name={env}
+            basedOn={basedOn}
+            gitMetadata={gitMetadata}
+            isPreview={isPreview}
+            size="small"
+          >
             {versions.map((version) => (
               <VersionInEnvironment
                 environment={env}

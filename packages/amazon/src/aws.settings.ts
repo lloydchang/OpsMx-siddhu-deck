@@ -27,6 +27,8 @@ export interface IAWSProviderSettings extends IProviderSettings {
   };
   defaultSecurityGroups?: string[];
   disableSpotPricing?: boolean;
+  dockerBakeryDeprecated?: boolean;
+  dockerBakeWarning?: string;
   instanceTypes?: {
     exclude?: {
       categories?: string[];
@@ -50,6 +52,7 @@ export interface IAWSProviderSettings extends IProviderSettings {
     setIPv6InTest?: boolean;
     enableIMDSv2?: boolean;
     defaultIMDSv2AppAgeLimit?: number;
+    accountDenyListIMDSv2?: string[];
     enableCpuCredits?: boolean;
     recommendedSubnets?: string[];
     subnetWarning?: string;

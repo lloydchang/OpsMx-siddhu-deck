@@ -1,6 +1,7 @@
 'use strict';
 
 import { module } from 'angular';
+import { cloneDeep } from 'lodash';
 
 import { ScalingPolicyWriter } from '@spinnaker/amazon';
 import { TaskMonitor } from '@spinnaker/core';
@@ -101,6 +102,19 @@ module(TITUS_SERVERGROUP_DETAILS_SCALINGPOLICY_UPSERT_UPSERTSCALINGPOLICY_CONTRO
         });
       }
 
+      this.stepsChanged = (newSteps) => {
+        this.command.step.stepAdjustments = newSteps;
+        this.boundsChanged();
+      };
+
+      this.adjustmentTypeChanged = (action, type) => {
+        this.viewState.operator = action;
+        this.viewState.adjustmentType = type;
+        const newType =
+          type !== 'instances' ? 'PercentChangeInCapacity' : action === 'Set to' ? 'ExactCapacity' : 'ChangeInCapacity';
+        this.command.adjustmentType = newType;
+      };
+
       this.boundsChanged = () => {
         const source =
           this.viewState.comparatorBound === 'min' ? 'metricIntervalLowerBound' : 'metricIntervalUpperBound';
@@ -121,7 +135,7 @@ module(TITUS_SERVERGROUP_DETAILS_SCALINGPOLICY_UPSERT_UPSERTSCALINGPOLICY_CONTRO
       this.action = this.viewState.isNew ? 'Create' : 'Edit';
 
       const prepareCommandForSubmit = () => {
-        const command = _.cloneDeep(this.command);
+        const command = cloneDeep(this.command);
 
         if (command.adjustmentType !== 'PercentChangeInCapacity') {
           delete command.minAdjustmentMagnitude;

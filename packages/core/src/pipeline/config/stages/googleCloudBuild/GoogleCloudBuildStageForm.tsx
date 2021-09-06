@@ -2,26 +2,22 @@ import { get } from 'lodash';
 import React from 'react';
 import { Option } from 'react-select';
 
+import { IFormikStageConfigInjectedProps } from '../FormikStageConfig';
 import { BuildDefinitionSource, TriggerType } from './IGoogleCloudBuildStage';
+import { ArtifactTypePatterns, excludeAllTypesExcept, StageArtifactSelectorDelegate } from '../../../../artifact';
+import { IgorService } from '../../../../ci';
+import { IArtifact, IExpectedArtifact } from '../../../../domain';
 import {
-  ArtifactTypePatterns,
-  excludeAllTypesExcept,
   FormikFormField,
   FormikSpelContextProvider,
-  IArtifact,
-  IExpectedArtifact,
-  IFormikStageConfigInjectedProps,
   IFormInputProps,
-  IgorService,
   RadioButtonInput,
   ReactSelectInput,
   SpelService,
-  StageArtifactSelectorDelegate,
   TextInput,
   useData,
-  yamlDocumentsToString,
-  YamlEditor,
-} from '../../../../index';
+} from '../../../../presentation';
+import { yamlDocumentsToString, YamlEditor } from '../../../../yamlEditor';
 
 const SOURCE_OPTIONS: Array<Option<string>> = [
   { value: BuildDefinitionSource.TEXT, label: 'Text' },

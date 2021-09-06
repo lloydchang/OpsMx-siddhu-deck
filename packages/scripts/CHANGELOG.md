@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.23...@spinnaker/scripts@0.1.0) (2021-08-20)
+
+
+* remove postcss nested (#9602) ([a20faf1](https://github.com/spinnaker/deck/commit/a20faf1b6020cf7f079b9486e6662530024a4336)), closes [#9602](https://github.com/spinnaker/deck/issues/9602)
+
+
+### BREAKING CHANGES
+
+* removed postcss-nested plugin.  Unlikely that this will break anything, but it's possible.
+
+
+
+
+
+## [0.0.23](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.22...@spinnaker/scripts@0.0.23) (2021-08-13)
+
+**Note:** Version bump only for package @spinnaker/scripts
+
+
+
+
+
+## [0.0.22](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.21...@spinnaker/scripts@0.0.22) (2021-08-02)
+
+
+### Bug Fixes
+
+* **vite:** Link app to core source files during dev ([37bf5f9](https://github.com/spinnaker/deck/commit/37bf5f9049c6b76f84afcdfc718124cc35d2b932))
+
+
+
+
+
+## [0.0.21](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.20...@spinnaker/scripts@0.0.21) (2021-07-30)
+
+
+### Bug Fixes
+
+* **rollup:** do not log quotes around NODE_ENV ([#9533](https://github.com/spinnaker/deck/issues/9533)) ([7bcf7d7](https://github.com/spinnaker/deck/commit/7bcf7d7a404814c6d368bdf7f072cd4674ca018b))
+
+
+
+
+
+## [0.0.20](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.15...@spinnaker/scripts@0.0.20) (2021-07-19)
+
+
+### Bug Fixes
+
+* **scripts:** Handle double quotes in require calls ([429bdd9](https://github.com/spinnaker/deck/commit/429bdd9e4d7e12d52044e9a62016feb00e4db719))
+
+
+
+
+
+## [0.0.19](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.15...@spinnaker/scripts@0.0.19) (2021-07-19)
+
+
+### Bug Fixes
+
+* **scripts:** Handle double quotes in require calls ([429bdd9](https://github.com/spinnaker/deck/commit/429bdd9e4d7e12d52044e9a62016feb00e4db719))
+
+
+
+
+
+## [0.0.18](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.15...@spinnaker/scripts@0.0.18) (2021-07-19)
+
+
+### Bug Fixes
+
+* **scripts:** Handle double quotes in require calls ([429bdd9](https://github.com/spinnaker/deck/commit/429bdd9e4d7e12d52044e9a62016feb00e4db719))
+
+
+
+
+
+## [0.0.17](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.15...@spinnaker/scripts@0.0.17) (2021-07-19)
+
+
+### Bug Fixes
+
+* **scripts:** Handle double quotes in require calls ([429bdd9](https://github.com/spinnaker/deck/commit/429bdd9e4d7e12d52044e9a62016feb00e4db719))
+
+
+
+
+
+## [0.0.16](https://github.com/spinnaker/deck/compare/@spinnaker/scripts@0.0.15...@spinnaker/scripts@0.0.16) (2021-07-19)
+
+
+### Bug Fixes
+
+* **scripts:** Handle double quotes in require calls ([429bdd9](https://github.com/spinnaker/deck/commit/429bdd9e4d7e12d52044e9a62016feb00e4db719))
+
+
+
+
+
 ## 0.0.15 (2021-07-17)
 
 

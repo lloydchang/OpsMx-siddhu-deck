@@ -29,15 +29,25 @@
               </p>
             </div>
           </div>
-
-          <aws-simple-policy-action command="ctrl.command" view-state="ctrl.viewState"></aws-simple-policy-action>
+          <aws-simple-policy-action
+            adjustment-type="ctrl.viewState.adjustmentType"
+            adjustment-type-changed="ctrl.adjustmentTypeChanged"
+            operator="ctrl.viewState.operator"
+            scaling-adjustment="ctrl.command.simple.scalingAdjustment"
+            update-scaling-adjustment="ctrl.scalingAdjustmentChanged"
+          ></aws-simple-policy-action>
         </div>
         <div ng-if="ctrl.command.step">
-          <aws-step-policy-action
-            command="ctrl.command"
-            view-state="ctrl.viewState"
-            bounds-changed="ctrl.boundsChanged()"
-          ></aws-step-policy-action>
+          <step-policy-action
+            adjustment-type="ctrl.viewState.adjustmentType"
+            adjustment-type-changed="ctrl.adjustmentTypeChanged"
+            alarm="ctrl.command.alarm"
+            is-min="ctrl.viewState.comparatorBound === 'min'"
+            operator="ctrl.viewState.operator"
+            step="ctrl.command.step"
+            steps-changed="ctrl.stepsChanged"
+          >
+          </step-policy-action>
         </div>
       </div>
       <h4 class="section-heading">Additional Settings</h4>

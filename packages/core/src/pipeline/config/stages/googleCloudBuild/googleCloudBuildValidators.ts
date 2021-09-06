@@ -1,5 +1,7 @@
+import { IContextualValidator } from '../FormikStageConfig';
 import { BuildDefinitionSource } from './IGoogleCloudBuildStage';
-import { FormValidator, IContextualValidator, IStage } from '../../../../index';
+import { IStage } from '../../../../domain';
+import { FormValidator } from '../../../../presentation';
 
 export const validate: IContextualValidator = (stage: IStage) => {
   const formValidator = new FormValidator(stage);

@@ -9,23 +9,20 @@ import {
   IAwsCodeBuildSource,
   SOURCE_TYPES,
 } from './IAwsCodeBuildSource';
+import { StageArtifactSelector } from '../../../../artifact';
+import { IArtifact, IExpectedArtifact, IPipeline, IStage } from '../../../../domain';
+import { HelpField } from '../../../../help';
+import { ModalClose, SubmitButton } from '../../../../modal';
 import {
   FormikFormField,
   FormValidator,
-  HelpField,
-  IArtifact,
-  IExpectedArtifact,
   IFormInputProps,
   IModalComponentProps,
-  IPipeline,
-  IStage,
   ReactModal,
   ReactSelectInput,
   SpinFormik,
-  StageArtifactSelector,
   TextInput,
-} from '../../../../index';
-import { ModalClose, SubmitButton } from '../../../../modal';
+} from '../../../../presentation';
 
 export interface IEditAwsCodeBuildSourceModalProps extends IModalComponentProps {
   source: IAwsCodeBuildSource;

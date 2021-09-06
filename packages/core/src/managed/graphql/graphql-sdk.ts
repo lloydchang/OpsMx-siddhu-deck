@@ -42,6 +42,8 @@ export interface MdApplication {
   pausedInfo?: Maybe<MdPausedInfo>;
   environments: Array<MdEnvironment>;
   notifications?: Maybe<Array<MdNotification>>;
+  gitIntegration?: Maybe<MdGitIntegration>;
+  config?: Maybe<MdConfig>;
 }
 
 export interface MdArtifact {
@@ -96,6 +98,7 @@ export interface MdArtifactVersionInEnvironment {
   verifications?: Maybe<Array<MdAction>>;
   postDeploy?: Maybe<Array<MdAction>>;
   veto?: Maybe<MdVersionVeto>;
+  isCurrent?: Maybe<Scalars['Boolean']>;
 }
 
 export interface MdCommitInfo {
@@ -109,6 +112,14 @@ export interface MdComparisonLinks {
   __typename?: 'MdComparisonLinks';
   toPreviousVersion?: Maybe<Scalars['String']>;
   toCurrentVersion?: Maybe<Scalars['String']>;
+}
+
+export interface MdConfig {
+  __typename?: 'MdConfig';
+  id: Scalars['ID'];
+  updatedAt?: Maybe<Scalars['InstantTime']>;
+  rawConfig?: Maybe<Scalars['String']>;
+  processedConfig?: Maybe<Scalars['String']>;
 }
 
 export interface MdConstraint {
@@ -134,15 +145,19 @@ export interface MdConstraintStatusPayload {
 }
 
 export interface MdDismissNotificationPayload {
+  application: Scalars['String'];
   id: Scalars['String'];
 }
 
 export interface MdEnvironment {
   __typename?: 'MdEnvironment';
-  id: Scalars['String'];
+  id: Scalars['ID'];
   name: Scalars['String'];
   state: MdEnvironmentState;
   isPreview?: Maybe<Scalars['Boolean']>;
+  isDeleting?: Maybe<Scalars['Boolean']>;
+  gitMetadata?: Maybe<MdGitMetadata>;
+  basedOn?: Maybe<Scalars['String']>;
 }
 
 export interface MdEnvironmentState {
@@ -153,6 +168,16 @@ export interface MdEnvironmentState {
 }
 
 export type MdEventLevel = 'SUCCESS' | 'INFO' | 'WARNING' | 'ERROR';
+
+export interface MdGitIntegration {
+  __typename?: 'MdGitIntegration';
+  id: Scalars['String'];
+  repository?: Maybe<Scalars['String']>;
+  branch?: Maybe<Scalars['String']>;
+  isEnabled?: Maybe<Scalars['Boolean']>;
+  manifestPath?: Maybe<Scalars['String']>;
+  link?: Maybe<Scalars['String']>;
+}
 
 export interface MdGitMetadata {
   __typename?: 'MdGitMetadata';
@@ -275,6 +300,7 @@ export interface MdResource {
   artifact?: Maybe<MdArtifact>;
   displayName?: Maybe<Scalars['String']>;
   location?: Maybe<MdLocation>;
+  rawDefinition?: Maybe<Scalars['String']>;
 }
 
 export interface MdResourceActuationState {
@@ -302,10 +328,21 @@ export interface MdRetryArtifactActionPayload {
   actionType: MdActionType;
 }
 
+export interface MdToggleResourceManagementPayload {
+  id: Scalars['ID'];
+  isPaused: Scalars['Boolean'];
+}
+
 export interface MdUnpinArtifactVersionPayload {
   application: Scalars['String'];
   environment: Scalars['String'];
   reference: Scalars['String'];
+}
+
+export interface MdUpdateGitIntegrationPayload {
+  application: Scalars['String'];
+  isEnabled?: Maybe<Scalars['Boolean']>;
+  manifestPath?: Maybe<Scalars['String']>;
 }
 
 export interface MdVersionVeto {
@@ -325,6 +362,9 @@ export interface Mutation {
   markArtifactVersionAsGood?: Maybe<Scalars['Boolean']>;
   retryArtifactVersionAction?: Maybe<MdAction>;
   dismissNotification?: Maybe<Scalars['Boolean']>;
+  updateGitIntegration?: Maybe<MdGitIntegration>;
+  toggleResourceManagement?: Maybe<Scalars['Boolean']>;
+  importDeliveryConfig?: Maybe<Scalars['Boolean']>;
 }
 
 export interface MutationUpdateConstraintStatusArgs {
@@ -332,7 +372,7 @@ export interface MutationUpdateConstraintStatusArgs {
 }
 
 export interface MutationToggleManagementArgs {
-  application: Scalars['String'];
+  application: Scalars['ID'];
   isPaused: Scalars['Boolean'];
   comment?: Maybe<Scalars['String']>;
 }
@@ -361,6 +401,18 @@ export interface MutationDismissNotificationArgs {
   payload: MdDismissNotificationPayload;
 }
 
+export interface MutationUpdateGitIntegrationArgs {
+  payload?: Maybe<MdUpdateGitIntegrationPayload>;
+}
+
+export interface MutationToggleResourceManagementArgs {
+  payload?: Maybe<MdToggleResourceManagementPayload>;
+}
+
+export interface MutationImportDeliveryConfigArgs {
+  application: Scalars['String'];
+}
+
 export interface Query {
   __typename?: 'Query';
   application?: Maybe<MdApplication>;
@@ -377,7 +429,7 @@ export type ActionDetailsFragment = { __typename?: 'MdAction' } & Pick<
 
 export type DetailedVersionFieldsFragment = { __typename?: 'MdArtifactVersionInEnvironment' } & Pick<
   MdArtifactVersionInEnvironment,
-  'id' | 'buildNumber' | 'version' | 'createdAt' | 'status' | 'deployedAt'
+  'id' | 'buildNumber' | 'version' | 'createdAt' | 'status' | 'isCurrent' | 'deployedAt'
 > & {
     gitMetadata?: Maybe<
       { __typename?: 'MdGitMetadata' } & Pick<MdGitMetadata, 'commit' | 'author' | 'branch'> & {
@@ -421,6 +473,17 @@ export type ArtifactPinnedVersionFieldsFragment = { __typename?: 'MdArtifact' } 
   >;
 };
 
+export type BaseEnvironmentFieldsFragment = { __typename?: 'MdEnvironment' } & Pick<
+  MdEnvironment,
+  'id' | 'name' | 'isPreview' | 'basedOn'
+> & {
+    gitMetadata?: Maybe<
+      { __typename?: 'MdGitMetadata' } & Pick<MdGitMetadata, 'branch'> & {
+          pullRequest?: Maybe<{ __typename?: 'MdPullRequest' } & Pick<MdPullRequest, 'link'>>;
+        }
+    >;
+  };
+
 export type FetchApplicationQueryVariables = Exact<{
   appName: Scalars['String'];
   statuses?: Maybe<Array<MdArtifactStatusInEnvironment> | MdArtifactStatusInEnvironment>;
@@ -430,7 +493,7 @@ export type FetchApplicationQuery = { __typename?: 'Query' } & {
   application?: Maybe<
     { __typename?: 'MdApplication' } & Pick<MdApplication, 'id' | 'name' | 'account'> & {
         environments: Array<
-          { __typename?: 'MdEnvironment' } & Pick<MdEnvironment, 'id' | 'name' | 'isPreview'> & {
+          { __typename?: 'MdEnvironment' } & Pick<MdEnvironment, 'isDeleting'> & {
               state: { __typename?: 'MdEnvironmentState' } & Pick<MdEnvironmentState, 'id'> & {
                   artifacts?: Maybe<
                     Array<
@@ -446,14 +509,17 @@ export type FetchApplicationQuery = { __typename?: 'Query' } & {
                   >;
                   resources?: Maybe<
                     Array<
-                      { __typename?: 'MdResource' } & Pick<MdResource, 'id' | 'kind' | 'displayName'> & {
+                      { __typename?: 'MdResource' } & Pick<
+                        MdResource,
+                        'id' | 'kind' | 'displayName' | 'rawDefinition'
+                      > & {
                           moniker?: Maybe<{ __typename?: 'MdMoniker' } & Pick<MdMoniker, 'app' | 'stack' | 'detail'>>;
                           location?: Maybe<{ __typename?: 'MdLocation' } & Pick<MdLocation, 'account' | 'regions'>>;
                         }
                     >
                   >;
                 };
-            }
+            } & BaseEnvironmentFieldsFragment
         >;
       }
   >;
@@ -468,47 +534,41 @@ export type FetchVersionsHistoryQuery = { __typename?: 'Query' } & {
   application?: Maybe<
     { __typename?: 'MdApplication' } & Pick<MdApplication, 'id' | 'name' | 'account'> & {
         environments: Array<
-          { __typename?: 'MdEnvironment' } & Pick<MdEnvironment, 'id' | 'name'> & {
-              state: { __typename?: 'MdEnvironmentState' } & Pick<MdEnvironmentState, 'id'> & {
-                  artifacts?: Maybe<
-                    Array<
-                      { __typename?: 'MdArtifact' } & Pick<
-                        MdArtifact,
-                        'id' | 'name' | 'environment' | 'type' | 'reference'
-                      > & {
-                          versions?: Maybe<
-                            Array<
-                              { __typename?: 'MdArtifactVersionInEnvironment' } & Pick<
-                                MdArtifactVersionInEnvironment,
-                                'id' | 'buildNumber' | 'version' | 'createdAt' | 'status'
-                              > & {
-                                  gitMetadata?: Maybe<
-                                    { __typename?: 'MdGitMetadata' } & Pick<
-                                      MdGitMetadata,
-                                      'commit' | 'author' | 'branch'
-                                    > & {
-                                        commitInfo?: Maybe<
-                                          { __typename?: 'MdCommitInfo' } & Pick<
-                                            MdCommitInfo,
-                                            'sha' | 'link' | 'message'
-                                          >
-                                        >;
-                                        pullRequest?: Maybe<
-                                          { __typename?: 'MdPullRequest' } & Pick<MdPullRequest, 'number' | 'link'>
-                                        >;
-                                      }
-                                  >;
-                                  lifecycleSteps?: Maybe<
-                                    Array<{ __typename?: 'MdLifecycleStep' } & Pick<MdLifecycleStep, 'type' | 'status'>>
-                                  >;
-                                }
-                            >
-                          >;
-                        } & ArtifactPinnedVersionFieldsFragment
-                    >
-                  >;
-                };
-            }
+          { __typename?: 'MdEnvironment' } & {
+            state: { __typename?: 'MdEnvironmentState' } & Pick<MdEnvironmentState, 'id'> & {
+                artifacts?: Maybe<
+                  Array<
+                    { __typename?: 'MdArtifact' } & Pick<
+                      MdArtifact,
+                      'id' | 'name' | 'environment' | 'type' | 'reference'
+                    > & {
+                        versions?: Maybe<
+                          Array<
+                            { __typename?: 'MdArtifactVersionInEnvironment' } & Pick<
+                              MdArtifactVersionInEnvironment,
+                              'id' | 'buildNumber' | 'version' | 'createdAt' | 'status' | 'isCurrent'
+                            > & {
+                                gitMetadata?: Maybe<
+                                  { __typename?: 'MdGitMetadata' } & Pick<
+                                    MdGitMetadata,
+                                    'commit' | 'author' | 'branch'
+                                  > & {
+                                      commitInfo?: Maybe<
+                                        { __typename?: 'MdCommitInfo' } & Pick<MdCommitInfo, 'sha' | 'link' | 'message'>
+                                      >;
+                                      pullRequest?: Maybe<
+                                        { __typename?: 'MdPullRequest' } & Pick<MdPullRequest, 'number' | 'link'>
+                                      >;
+                                    }
+                                >;
+                              }
+                          >
+                        >;
+                      } & ArtifactPinnedVersionFieldsFragment
+                  >
+                >;
+              };
+          } & BaseEnvironmentFieldsFragment
         >;
       }
   >;
@@ -622,6 +682,26 @@ export type FetchNotificationsQuery = { __typename?: 'Query' } & {
   >;
 };
 
+export type FetchApplicationManagementDataQueryVariables = Exact<{
+  appName: Scalars['String'];
+}>;
+
+export type FetchApplicationManagementDataQuery = { __typename?: 'Query' } & {
+  application?: Maybe<
+    { __typename?: 'MdApplication' } & Pick<MdApplication, 'id' | 'name' | 'isPaused'> & {
+        config?: Maybe<
+          { __typename?: 'MdConfig' } & Pick<MdConfig, 'id' | 'updatedAt' | 'rawConfig' | 'processedConfig'>
+        >;
+        gitIntegration?: Maybe<
+          { __typename?: 'MdGitIntegration' } & Pick<
+            MdGitIntegration,
+            'id' | 'repository' | 'branch' | 'isEnabled' | 'link'
+          >
+        >;
+      }
+  >;
+};
+
 export type FetchApplicationManagementStatusQueryVariables = Exact<{
   appName: Scalars['String'];
 }>;
@@ -637,7 +717,7 @@ export type UpdateConstraintMutationVariables = Exact<{
 export type UpdateConstraintMutation = { __typename?: 'Mutation' } & Pick<Mutation, 'updateConstraintStatus'>;
 
 export type ToggleManagementMutationVariables = Exact<{
-  application: Scalars['String'];
+  application: Scalars['ID'];
   isPaused: Scalars['Boolean'];
 }>;
 
@@ -675,6 +755,26 @@ export type RetryVersionActionMutation = { __typename?: 'Mutation' } & {
   retryArtifactVersionAction?: Maybe<{ __typename?: 'MdAction' } & ActionDetailsFragment>;
 };
 
+export type UpdateGitIntegrationMutationVariables = Exact<{
+  payload: MdUpdateGitIntegrationPayload;
+}>;
+
+export type UpdateGitIntegrationMutation = { __typename?: 'Mutation' } & {
+  updateGitIntegration?: Maybe<{ __typename?: 'MdGitIntegration' } & Pick<MdGitIntegration, 'id' | 'isEnabled'>>;
+};
+
+export type DismissNotificationMutationVariables = Exact<{
+  payload: MdDismissNotificationPayload;
+}>;
+
+export type DismissNotificationMutation = { __typename?: 'Mutation' } & Pick<Mutation, 'dismissNotification'>;
+
+export type ImportDeliveryConfigMutationVariables = Exact<{
+  application: Scalars['String'];
+}>;
+
+export type ImportDeliveryConfigMutation = { __typename?: 'Mutation' } & Pick<Mutation, 'importDeliveryConfig'>;
+
 export const ActionDetailsFragmentDoc = gql`
   fragment actionDetails on MdAction {
     id
@@ -693,6 +793,7 @@ export const DetailedVersionFieldsFragmentDoc = gql`
     version
     createdAt
     status
+    isCurrent
     gitMetadata {
       commit
       author
@@ -757,6 +858,20 @@ export const ArtifactPinnedVersionFieldsFragmentDoc = gql`
     }
   }
 `;
+export const BaseEnvironmentFieldsFragmentDoc = gql`
+  fragment baseEnvironmentFields on MdEnvironment {
+    id
+    name
+    isPreview
+    gitMetadata {
+      branch
+      pullRequest {
+        link
+      }
+    }
+    basedOn
+  }
+`;
 export const FetchApplicationDocument = gql`
   query fetchApplication($appName: String!, $statuses: [MdArtifactStatusInEnvironment!]) {
     application(appName: $appName) {
@@ -764,9 +879,8 @@ export const FetchApplicationDocument = gql`
       name
       account
       environments {
-        id
-        name
-        isPreview
+        ...baseEnvironmentFields
+        isDeleting
         state {
           id
           artifacts {
@@ -793,11 +907,13 @@ export const FetchApplicationDocument = gql`
               account
               regions
             }
+            rawDefinition
           }
         }
       }
     }
   }
+  ${BaseEnvironmentFieldsFragmentDoc}
   ${DetailedVersionFieldsFragmentDoc}
   ${ArtifactPinnedVersionFieldsFragmentDoc}
 `;
@@ -841,8 +957,7 @@ export const FetchVersionsHistoryDocument = gql`
       name
       account
       environments {
-        id
-        name
+        ...baseEnvironmentFields
         state {
           id
           artifacts {
@@ -857,6 +972,7 @@ export const FetchVersionsHistoryDocument = gql`
               version
               createdAt
               status
+              isCurrent
               gitMetadata {
                 commit
                 author
@@ -871,10 +987,6 @@ export const FetchVersionsHistoryDocument = gql`
                   link
                 }
               }
-              lifecycleSteps {
-                type
-                status
-              }
             }
             ...artifactPinnedVersionFields
           }
@@ -882,6 +994,7 @@ export const FetchVersionsHistoryDocument = gql`
       }
     }
   }
+  ${BaseEnvironmentFieldsFragmentDoc}
   ${ArtifactPinnedVersionFieldsFragmentDoc}
 `;
 
@@ -1178,6 +1291,77 @@ export type FetchNotificationsQueryResult = Apollo.QueryResult<
   FetchNotificationsQuery,
   FetchNotificationsQueryVariables
 >;
+export const FetchApplicationManagementDataDocument = gql`
+  query fetchApplicationManagementData($appName: String!) {
+    application(appName: $appName) {
+      id
+      name
+      isPaused
+      config {
+        id
+        updatedAt
+        rawConfig
+        processedConfig
+      }
+      gitIntegration {
+        id
+        repository
+        branch
+        isEnabled
+        link
+      }
+    }
+  }
+`;
+
+/**
+ * __useFetchApplicationManagementDataQuery__
+ *
+ * To run a query within a React component, call `useFetchApplicationManagementDataQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFetchApplicationManagementDataQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFetchApplicationManagementDataQuery({
+ *   variables: {
+ *      appName: // value for 'appName'
+ *   },
+ * });
+ */
+export function useFetchApplicationManagementDataQuery(
+  baseOptions: Apollo.QueryHookOptions<
+    FetchApplicationManagementDataQuery,
+    FetchApplicationManagementDataQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<FetchApplicationManagementDataQuery, FetchApplicationManagementDataQueryVariables>(
+    FetchApplicationManagementDataDocument,
+    options,
+  );
+}
+export function useFetchApplicationManagementDataLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    FetchApplicationManagementDataQuery,
+    FetchApplicationManagementDataQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<FetchApplicationManagementDataQuery, FetchApplicationManagementDataQueryVariables>(
+    FetchApplicationManagementDataDocument,
+    options,
+  );
+}
+export type FetchApplicationManagementDataQueryHookResult = ReturnType<typeof useFetchApplicationManagementDataQuery>;
+export type FetchApplicationManagementDataLazyQueryHookResult = ReturnType<
+  typeof useFetchApplicationManagementDataLazyQuery
+>;
+export type FetchApplicationManagementDataQueryResult = Apollo.QueryResult<
+  FetchApplicationManagementDataQuery,
+  FetchApplicationManagementDataQueryVariables
+>;
 export const FetchApplicationManagementStatusDocument = gql`
   query fetchApplicationManagementStatus($appName: String!) {
     application(appName: $appName) {
@@ -1281,7 +1465,7 @@ export type UpdateConstraintMutationOptions = Apollo.BaseMutationOptions<
   UpdateConstraintMutationVariables
 >;
 export const ToggleManagementDocument = gql`
-  mutation ToggleManagement($application: String!, $isPaused: Boolean!) {
+  mutation ToggleManagement($application: ID!, $isPaused: Boolean!) {
     toggleManagement(application: $application, isPaused: $isPaused)
   }
 `;
@@ -1520,4 +1704,133 @@ export type RetryVersionActionMutationResult = Apollo.MutationResult<RetryVersio
 export type RetryVersionActionMutationOptions = Apollo.BaseMutationOptions<
   RetryVersionActionMutation,
   RetryVersionActionMutationVariables
+>;
+export const UpdateGitIntegrationDocument = gql`
+  mutation UpdateGitIntegration($payload: MdUpdateGitIntegrationPayload!) {
+    updateGitIntegration(payload: $payload) {
+      id
+      isEnabled
+    }
+  }
+`;
+export type UpdateGitIntegrationMutationFn = Apollo.MutationFunction<
+  UpdateGitIntegrationMutation,
+  UpdateGitIntegrationMutationVariables
+>;
+
+/**
+ * __useUpdateGitIntegrationMutation__
+ *
+ * To run a mutation, you first call `useUpdateGitIntegrationMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateGitIntegrationMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateGitIntegrationMutation, { data, loading, error }] = useUpdateGitIntegrationMutation({
+ *   variables: {
+ *      payload: // value for 'payload'
+ *   },
+ * });
+ */
+export function useUpdateGitIntegrationMutation(
+  baseOptions?: Apollo.MutationHookOptions<UpdateGitIntegrationMutation, UpdateGitIntegrationMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<UpdateGitIntegrationMutation, UpdateGitIntegrationMutationVariables>(
+    UpdateGitIntegrationDocument,
+    options,
+  );
+}
+export type UpdateGitIntegrationMutationHookResult = ReturnType<typeof useUpdateGitIntegrationMutation>;
+export type UpdateGitIntegrationMutationResult = Apollo.MutationResult<UpdateGitIntegrationMutation>;
+export type UpdateGitIntegrationMutationOptions = Apollo.BaseMutationOptions<
+  UpdateGitIntegrationMutation,
+  UpdateGitIntegrationMutationVariables
+>;
+export const DismissNotificationDocument = gql`
+  mutation DismissNotification($payload: MdDismissNotificationPayload!) {
+    dismissNotification(payload: $payload)
+  }
+`;
+export type DismissNotificationMutationFn = Apollo.MutationFunction<
+  DismissNotificationMutation,
+  DismissNotificationMutationVariables
+>;
+
+/**
+ * __useDismissNotificationMutation__
+ *
+ * To run a mutation, you first call `useDismissNotificationMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDismissNotificationMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [dismissNotificationMutation, { data, loading, error }] = useDismissNotificationMutation({
+ *   variables: {
+ *      payload: // value for 'payload'
+ *   },
+ * });
+ */
+export function useDismissNotificationMutation(
+  baseOptions?: Apollo.MutationHookOptions<DismissNotificationMutation, DismissNotificationMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<DismissNotificationMutation, DismissNotificationMutationVariables>(
+    DismissNotificationDocument,
+    options,
+  );
+}
+export type DismissNotificationMutationHookResult = ReturnType<typeof useDismissNotificationMutation>;
+export type DismissNotificationMutationResult = Apollo.MutationResult<DismissNotificationMutation>;
+export type DismissNotificationMutationOptions = Apollo.BaseMutationOptions<
+  DismissNotificationMutation,
+  DismissNotificationMutationVariables
+>;
+export const ImportDeliveryConfigDocument = gql`
+  mutation ImportDeliveryConfig($application: String!) {
+    importDeliveryConfig(application: $application)
+  }
+`;
+export type ImportDeliveryConfigMutationFn = Apollo.MutationFunction<
+  ImportDeliveryConfigMutation,
+  ImportDeliveryConfigMutationVariables
+>;
+
+/**
+ * __useImportDeliveryConfigMutation__
+ *
+ * To run a mutation, you first call `useImportDeliveryConfigMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useImportDeliveryConfigMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [importDeliveryConfigMutation, { data, loading, error }] = useImportDeliveryConfigMutation({
+ *   variables: {
+ *      application: // value for 'application'
+ *   },
+ * });
+ */
+export function useImportDeliveryConfigMutation(
+  baseOptions?: Apollo.MutationHookOptions<ImportDeliveryConfigMutation, ImportDeliveryConfigMutationVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useMutation<ImportDeliveryConfigMutation, ImportDeliveryConfigMutationVariables>(
+    ImportDeliveryConfigDocument,
+    options,
+  );
+}
+export type ImportDeliveryConfigMutationHookResult = ReturnType<typeof useImportDeliveryConfigMutation>;
+export type ImportDeliveryConfigMutationResult = Apollo.MutationResult<ImportDeliveryConfigMutation>;
+export type ImportDeliveryConfigMutationOptions = Apollo.BaseMutationOptions<
+  ImportDeliveryConfigMutation,
+  ImportDeliveryConfigMutationVariables
 >;

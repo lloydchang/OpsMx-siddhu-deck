@@ -1,7 +1,10 @@
 import { FormikProps } from 'formik';
 import React from 'react';
 
-import { Application, HelpField, IServerGroupCommand, Overridable } from '../../../../../index';
+import { Application } from '../../../../../application';
+import { HelpField } from '../../../../../help';
+import { Overridable } from '../../../../../overrideRegistry';
+import { IServerGroupCommand } from '../../serverGroupCommandBuilder.service';
 
 export interface DetailsFieldProps<T extends IServerGroupCommand> {
   app: Application;

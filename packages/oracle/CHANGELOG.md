@@ -3,6 +3,169 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.47](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.46...@spinnaker/oracle@0.0.47) (2021-09-02)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.46](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.45...@spinnaker/oracle@0.0.46) (2021-08-30)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.45](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.44...@spinnaker/oracle@0.0.45) (2021-08-25)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.44](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.43...@spinnaker/oracle@0.0.44) (2021-08-20)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.43](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.42...@spinnaker/oracle@0.0.43) (2021-08-18)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.42](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.41...@spinnaker/oracle@0.0.42) (2021-08-17)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.41](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.40...@spinnaker/oracle@0.0.41) (2021-08-13)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.40](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.39...@spinnaker/oracle@0.0.40) (2021-08-10)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.39](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.38...@spinnaker/oracle@0.0.39) (2021-08-05)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.38](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.37...@spinnaker/oracle@0.0.38) (2021-08-02)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.37](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.36...@spinnaker/oracle@0.0.37) (2021-07-30)
+
+
+### Bug Fixes
+
+* **all:** Fix lodash global usage ([d048432](https://github.com/spinnaker/deck/commit/d048432978f0aa0bceb2b58f80ea7301de153072))
+
+
+
+
+
+## [0.0.36](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.35...@spinnaker/oracle@0.0.36) (2021-07-26)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.35](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.34...@spinnaker/oracle@0.0.35) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.34](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.32...@spinnaker/oracle@0.0.34) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.33](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.32...@spinnaker/oracle@0.0.33) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.32](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.27...@spinnaker/oracle@0.0.32) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.31](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.27...@spinnaker/oracle@0.0.31) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.30](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.27...@spinnaker/oracle@0.0.30) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.29](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.27...@spinnaker/oracle@0.0.29) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
+## [0.0.28](https://github.com/spinnaker/deck/compare/@spinnaker/oracle@0.0.27...@spinnaker/oracle@0.0.28) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/oracle
+
+
+
+
+
 ## 0.0.27 (2021-07-17)
 
 

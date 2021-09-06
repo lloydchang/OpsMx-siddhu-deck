@@ -35,6 +35,7 @@ export interface IFeatures {
   fiatEnabled?: boolean;
   iapRefresherEnabled?: boolean;
   managedDelivery?: boolean;
+  mdGitIntegration?: boolean;
   managedServiceAccounts?: boolean;
   managedResources?: boolean;
   notifications?: boolean;
@@ -48,6 +49,7 @@ export interface IFeatures {
   savePipelinesStageEnabled?: boolean;
   functions?: boolean;
   kubernetesRawResources?: boolean;
+  renderPipelineStageThreshold?: number;
 }
 
 export interface IDockerInsightSettings {
@@ -74,6 +76,7 @@ export interface ISpinnakerSettings {
     };
     ga?: string;
   };
+  apiTimeoutMs: number;
   authEnabled: boolean;
   authEndpoint: string;
   authTtl: number;

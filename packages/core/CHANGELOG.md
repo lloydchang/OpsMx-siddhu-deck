@@ -3,6 +3,257 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.8.0...@spinnaker/core@0.9.0) (2021-09-02)
+
+
+### Features
+
+* **md:** added "import now" to delivery config ([#9634](https://github.com/spinnaker/deck/issues/9634)) ([9777658](https://github.com/spinnaker/deck/commit/9777658f2d5b090228da8d339f5385f535d4c4b8))
+
+
+
+
+
+# [0.8.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.7.0...@spinnaker/core@0.8.0) (2021-08-30)
+
+
+### Features
+
+* **core/pipeline:** pipeline graph minimize based on number of stages ([#9562](https://github.com/spinnaker/deck/issues/9562)) ([86c5c7c](https://github.com/spinnaker/deck/commit/86c5c7cde993749384a062e24102675ccb290e92))
+
+
+
+
+
+# [0.7.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.6.0...@spinnaker/core@0.7.0) (2021-08-25)
+
+
+### Bug Fixes
+
+* **md:** always show the config component ([#9613](https://github.com/spinnaker/deck/issues/9613)) ([ed35f1c](https://github.com/spinnaker/deck/commit/ed35f1c2ee17636f3090b3269cdb9ef80bd719ff))
+
+
+### Features
+
+* **managed-delivery:** Expose resource definition on the UI ([#9611](https://github.com/spinnaker/deck/issues/9611)) ([d264840](https://github.com/spinnaker/deck/commit/d264840ee86beb3dd5581556d957f468ebb4e4cd))
+
+
+
+
+
+# [0.6.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.5.0...@spinnaker/core@0.6.0) (2021-08-20)
+
+
+### Bug Fixes
+
+* **md:** increased pinned icon size ([#9600](https://github.com/spinnaker/deck/issues/9600)) ([e5e2de1](https://github.com/spinnaker/deck/commit/e5e2de1659db230e047e0b48b8812ec40ec4c593))
+
+
+* remove postcss nested (#9602) ([a20faf1](https://github.com/spinnaker/deck/commit/a20faf1b6020cf7f079b9486e6662530024a4336)), closes [#9602](https://github.com/spinnaker/deck/issues/9602)
+
+
+### BREAKING CHANGES
+
+* removed postcss-nested plugin.  Unlikely that this will break anything, but it's possible.
+
+
+
+
+
+# [0.5.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.4.0...@spinnaker/core@0.5.0) (2021-08-18)
+
+
+### Bug Fixes
+
+* **core:** Group execution popover too wide ([#9585](https://github.com/spinnaker/deck/issues/9585)) ([3121ffa](https://github.com/spinnaker/deck/commit/3121ffa89295dbb252bf4b1f81ba6f1abc0c7e25))
+
+
+### Features
+
+* **md:** use isCurrent to identify the current version + show secondary status when needed (deploying/vetoed) ([#9594](https://github.com/spinnaker/deck/issues/9594)) ([847905b](https://github.com/spinnaker/deck/commit/847905b44c44fba72009c2f31b288cd0760e5f4b))
+
+
+
+
+
+# [0.4.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.3.1...@spinnaker/core@0.4.0) (2021-08-17)
+
+
+### Features
+
+* **md:** support max and actual deploys in allowed times constraint ([#9589](https://github.com/spinnaker/deck/issues/9589)) ([9f8aa7d](https://github.com/spinnaker/deck/commit/9f8aa7d253c62bf60d2157c901387dddecf9f1cb))
+* **md:** updated preview environment titles to use the branch name, link to the PR, and show basedOn ([#9587](https://github.com/spinnaker/deck/issues/9587)) ([13e3f8f](https://github.com/spinnaker/deck/commit/13e3f8fadcb51d06dcc0f4bccfeeabd7127feb17))
+
+
+
+
+
+## [0.3.1](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.3.0...@spinnaker/core@0.3.1) (2021-08-13)
+
+
+### Bug Fixes
+
+* **core/pipeline:** explicitly type DateTimeFormatOptions ([fcdd803](https://github.com/spinnaker/deck/commit/fcdd803492a50c02876c027480f60d8aa1144e72))
+* **md:** git integration improvements ([#9583](https://github.com/spinnaker/deck/issues/9583)) ([516eb01](https://github.com/spinnaker/deck/commit/516eb018622849a636d16063f5d2ee8a232b1f42))
+
+
+
+
+
+# [0.3.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.2.1...@spinnaker/core@0.3.0) (2021-08-10)
+
+
+### Bug Fixes
+
+* **md:** hide completed task status and progress bar if completed ([#9560](https://github.com/spinnaker/deck/issues/9560)) ([6b441b0](https://github.com/spinnaker/deck/commit/6b441b03a45d10930711ab50d86f851afe8cd534))
+
+
+### Features
+
+* **core/pipeline:** Check if deploy stage has a trigger that provide… ([#9538](https://github.com/spinnaker/deck/issues/9538)) ([287cecb](https://github.com/spinnaker/deck/commit/287cecb5abf0871c1a2429d8c370470d54417cad))
+* **md:** an option to enable the auto import delivery config from git  ([#9558](https://github.com/spinnaker/deck/issues/9558)) ([fbcb21a](https://github.com/spinnaker/deck/commit/fbcb21a8ee7e2e431383d5d8b4fa79cf324a6f68))
+
+
+
+
+
+## [0.2.1](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.2.0...@spinnaker/core@0.2.1) (2021-08-05)
+
+
+### Bug Fixes
+
+* **core:** fix layout, click-to-scroll on diff view ([#9555](https://github.com/spinnaker/deck/issues/9555)) ([bc6ccca](https://github.com/spinnaker/deck/commit/bc6ccca86c6506cfcd243823147c9c9ea95df185))
+* **core:** Format changes timestamps when they are numbers or strings ([#9552](https://github.com/spinnaker/deck/issues/9552)) ([e780285](https://github.com/spinnaker/deck/commit/e780285d8fbdbbef3eba181368c0fe9ac4a4b866))
+
+
+
+
+
+# [0.2.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.1.0...@spinnaker/core@0.2.0) (2021-08-02)
+
+
+### Bug Fixes
+
+* **core/filterModel:** Do not add browser histroy events when changing infrastructure filter queries ([56cc429](https://github.com/spinnaker/deck/commit/56cc429a93d6a980cdce4e52dfb8adbe1d045832))
+* **core:** fixed a bunch of circular deps ([29f2b39](https://github.com/spinnaker/deck/commit/29f2b39fd44b43265124e824cb311ff3f8abbf0a))
+* **core:** Remove circular dependencies - 2 ([ee5f783](https://github.com/spinnaker/deck/commit/ee5f783e213bb175f6f9bd9c85bd42e3d6850d47))
+* **core:** Remove circular dependency of modules ([5c942b1](https://github.com/spinnaker/deck/commit/5c942b15b5f6a257d737a87fc8552dc5e40c8762))
+* **core:** trying to avoid importing ReactInjector in presentation ([4d464ce](https://github.com/spinnaker/deck/commit/4d464cea3a98be1c31484c7ec4123d3ca74c7c21))
+* **md:** text for BLOCKED status in allowed times constraint ([#9550](https://github.com/spinnaker/deck/issues/9550)) ([811e806](https://github.com/spinnaker/deck/commit/811e8065d12d36d114ea9e3af0049d368563a1ff))
+* **md:** the raw delivery config is not showing up properly. Hiding it for now ([#9548](https://github.com/spinnaker/deck/issues/9548)) ([8f7c6ef](https://github.com/spinnaker/deck/commit/8f7c6eff565a7915fbb8fe2607eae742ffc516b1))
+
+
+### Features
+
+* **core/cluster:** Remove unused react2angular <filter-search> component ([7514b0b](https://github.com/spinnaker/deck/commit/7514b0b06e687e3f92548517297365ed4d8137ce))
+
+
+
+
+
+# [0.1.0](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.620...@spinnaker/core@0.1.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* **all:** Fix lodash global usage ([d048432](https://github.com/spinnaker/deck/commit/d048432978f0aa0bceb2b58f80ea7301de153072))
+* **build:** Upgrade uirouter/react version ([cc5004b](https://github.com/spinnaker/deck/commit/cc5004bfded32642553077346c19e34820d24ae7))
+* **core/pipeline:** Disable pipeline sorting when filtering by name (because some pipelines are hidden) ([1e06186](https://github.com/spinnaker/deck/commit/1e06186dec9fa9b38806f02db17e38c9d89125da))
+* **md:** fetch raw delivery config via graphql ([#9537](https://github.com/spinnaker/deck/issues/9537)) ([1ca3549](https://github.com/spinnaker/deck/commit/1ca354966c1ad7ab07d614db1df56aea67ffef6a))
+* **vite:** Add vite fixes ([8e0840a](https://github.com/spinnaker/deck/commit/8e0840a647944d9f90ad51c6568c320b096730d6))
+
+
+### Features
+
+* **core/pipeline:** Add some SpinErrorBoundaries to pipeline execution details ([14fa364](https://github.com/spinnaker/deck/commit/14fa364905a8bc532e6e28529acacf8a7d0d9e83))
+* **core/presentation:** Add a retry button to SpinErrorBoundary ([9883704](https://github.com/spinnaker/deck/commit/9883704db8f5b770c0793347b85d93bd87626e18))
+* introduce a separate timeout config property for api timeouts ([#9498](https://github.com/spinnaker/deck/issues/9498)) ([678a78a](https://github.com/spinnaker/deck/commit/678a78afa4cb762df01d8c6ed19311fdeeeb86a7))
+
+
+
+
+
+## [0.0.620](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.619...@spinnaker/core@0.0.620) (2021-07-26)
+
+**Note:** Version bump only for package @spinnaker/core
+
+
+
+
+
+## [0.0.619](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.618...@spinnaker/core@0.0.619) (2021-07-22)
+
+
+### Bug Fixes
+
+* sample commit to test publishing scripts ([#9509](https://github.com/spinnaker/deck/issues/9509)) ([7438c84](https://github.com/spinnaker/deck/commit/7438c84d75c18cf5c1e7d17d39eef046f8f644dd))
+
+
+
+
+
+## [0.0.618](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.616...@spinnaker/core@0.0.618) (2021-07-22)
+
+
+### Bug Fixes
+
+* **core/loadBalancer:** Pushed modal overlay to the background ([#9466](https://github.com/spinnaker/deck/issues/9466)) ([799250b](https://github.com/spinnaker/deck/commit/799250bde2fdf9ba7d88b1a5adb0c937601b6ae0))
+
+
+
+
+
+## [0.0.617](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.616...@spinnaker/core@0.0.617) (2021-07-22)
+
+
+### Bug Fixes
+
+* **core/loadBalancer:** Pushed modal overlay to the background ([#9466](https://github.com/spinnaker/deck/issues/9466)) ([799250b](https://github.com/spinnaker/deck/commit/799250bde2fdf9ba7d88b1a5adb0c937601b6ae0))
+
+
+
+
+
+## [0.0.616](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.611...@spinnaker/core@0.0.616) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/core
+
+
+
+
+
+## [0.0.615](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.611...@spinnaker/core@0.0.615) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/core
+
+
+
+
+
+## [0.0.614](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.611...@spinnaker/core@0.0.614) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/core
+
+
+
+
+
+## [0.0.613](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.611...@spinnaker/core@0.0.613) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/core
+
+
+
+
+
+## [0.0.612](https://github.com/spinnaker/deck/compare/@spinnaker/core@0.0.611...@spinnaker/core@0.0.612) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/core
+
+
+
+
+
 ## 0.0.611 (2021-07-17)
 
 

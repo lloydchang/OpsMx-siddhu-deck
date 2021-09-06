@@ -1,7 +1,7 @@
 {
   "name": "@spinnaker/core",
   "license": "Apache-2.0",
-  "version": "0.0.611",
+  "version": "0.9.0",
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -17,11 +17,11 @@
     "@apollo/client": "3.3.14",
     "@fortawesome/fontawesome-free": "5.5.0",
     "@spinnaker/mocks": "1.0.7",
-    "@spinnaker/presentation": "^0.0.9",
-    "@spinnaker/styleguide": "1.0.26",
+    "@spinnaker/presentation": "^0.0.11",
+    "@spinnaker/styleguide": "1.0.28",
     "@uirouter/angularjs": "1.0.26",
     "@uirouter/core": "6.0.8",
-    "@uirouter/react": "1.0.3",
+    "@uirouter/react": "1.0.7",
     "@uirouter/react-hybrid": "1.0.2",
     "@uirouter/rx": "0.6.5",
     "@uirouter/visualizer": "7.2.1",
@@ -50,8 +50,7 @@
     "human-readable-ids": "1.0.4",
     "jquery": "3.5.1",
     "jquery-textcomplete": "1.6.1",
-    "jquery-ui": "1.12.0",
-    "js-worker-search": "1.2.1",
+    "js-worker-search": "npm:js-worker-search-uuid-fix@^1.4.2",
     "js-yaml": "3.13.1",
     "lodash": "4.17.21",
     "lodash-decorators": "4.5.0",
@@ -89,8 +88,8 @@
     "@graphql-codegen/typescript": "^1.22.4",
     "@graphql-codegen/typescript-operations": "^1.18.3",
     "@graphql-codegen/typescript-react-apollo": "^2.3.0",
-    "@spinnaker/eslint-plugin": "^1.0.14",
-    "@spinnaker/scripts": "^0.0.15",
+    "@spinnaker/eslint-plugin": "^1.1.1",
+    "@spinnaker/scripts": "^0.1.0",
     "@types/angular": "1.6.26",
     "@types/angular-mocks": "1.5.10",
     "@types/angular-ui-bootstrap": "0.13.41",
@@ -119,6 +118,6 @@
     "graphql": "^15.5.1",
     "rollup-plugin-copy": "^3.4.0",
     "shx": "0.3.3",
-    "typescript": "4.0.2"
+    "typescript": "4.3.5"
   }
 }

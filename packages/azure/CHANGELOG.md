@@ -3,6 +3,174 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.1.0...@spinnaker/azure@0.2.0) (2021-09-02)
+
+
+### Features
+
+* **provider/azure:** Add image settings to server group ([#9632](https://github.com/spinnaker/deck/issues/9632)) ([940dd28](https://github.com/spinnaker/deck/commit/940dd28c9184f073c94fdeb01a24227b5bfe2e63))
+* **provider/azure:** Add userAssignedIdentities to azure UI ([#9627](https://github.com/spinnaker/deck/issues/9627)) ([1aaaf03](https://github.com/spinnaker/deck/commit/1aaaf03577396318e6a028178014b5d6931552d3))
+
+
+
+
+
+# [0.1.0](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.293...@spinnaker/azure@0.1.0) (2021-08-30)
+
+
+### Features
+
+* **provider/azure:** Add healthSettings to server groups ([#9622](https://github.com/spinnaker/deck/issues/9622)) ([b98c8f5](https://github.com/spinnaker/deck/commit/b98c8f5b0b3bda953edee16f59a3865b2cc87938))
+* **provider/azure:** Allow empty load balancer for Azure scale sets ([#9620](https://github.com/spinnaker/deck/issues/9620)) ([63c1647](https://github.com/spinnaker/deck/commit/63c1647dce5baa331467d536147166b1f84f7d9f))
+
+
+
+
+
+## [0.0.293](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.292...@spinnaker/azure@0.0.293) (2021-08-25)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.292](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.291...@spinnaker/azure@0.0.292) (2021-08-20)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.291](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.290...@spinnaker/azure@0.0.291) (2021-08-18)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.290](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.289...@spinnaker/azure@0.0.290) (2021-08-17)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.289](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.288...@spinnaker/azure@0.0.289) (2021-08-13)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.288](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.287...@spinnaker/azure@0.0.288) (2021-08-10)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.287](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.286...@spinnaker/azure@0.0.287) (2021-08-05)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.286](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.285...@spinnaker/azure@0.0.286) (2021-08-02)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.285](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.284...@spinnaker/azure@0.0.285) (2021-07-30)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.284](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.283...@spinnaker/azure@0.0.284) (2021-07-26)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.283](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.282...@spinnaker/azure@0.0.283) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.282](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.280...@spinnaker/azure@0.0.282) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.281](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.280...@spinnaker/azure@0.0.281) (2021-07-22)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.280](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.275...@spinnaker/azure@0.0.280) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.279](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.275...@spinnaker/azure@0.0.279) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.278](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.275...@spinnaker/azure@0.0.278) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.277](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.275...@spinnaker/azure@0.0.277) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.0.276](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.0.275...@spinnaker/azure@0.0.276) (2021-07-19)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
 ## 0.0.275 (2021-07-17)
 
 
