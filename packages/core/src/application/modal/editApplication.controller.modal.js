@@ -32,6 +32,7 @@ angular
       };
       vm.errorMsgs = [];
       vm.application = application;
+      vm.isNew = !application.attributes || !application.attributes.email;
       vm.applicationAttributes = _.cloneDeep(application.attributes);
 
       AccountService.listProviders().then((providers) => (vm.data.cloudProviders = providers));
@@ -119,10 +120,11 @@ angular
       }
 
       vm.handlePermissionsChange = (permissions) => {
-        vm.state.permissionsInvalid = !permissionsAreValid(permissions);
-        vm.applicationAttributes.permissions = permissions;
-        delete vm.applicationAttributes.requiredGroupMembership;
-        $scope.$digest();
+        $scope.$evalAsync(() => {
+          vm.state.permissionsInvalid = !permissionsAreValid(permissions);
+          vm.applicationAttributes.permissions = permissions;
+          delete vm.applicationAttributes.requiredGroupMembership;
+        });
       };
 
       return vm;

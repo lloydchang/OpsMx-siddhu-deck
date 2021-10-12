@@ -1,9 +1,12 @@
-import React from 'react';
-import { shallow } from 'enzyme';
 import { mock } from 'angular';
-import { SubnetSelectInput } from './SubnetSelectInput';
-import { Application, ApplicationModelBuilder } from '@spinnaker/core';
+import { render, shallow } from 'enzyme';
+import React from 'react';
+
+import type { Application } from '@spinnaker/core';
+import { ApplicationModelBuilder } from '@spinnaker/core';
 import { mockServerGroupDataSourceConfig, mockSubnet } from '@spinnaker/mocks';
+
+import { SubnetSelectInput } from './SubnetSelectInput';
 
 describe('SubnetSelectInput', () => {
   let application: Application;
@@ -35,8 +38,8 @@ describe('SubnetSelectInput', () => {
   });
 
   it('should generate options', () => {
-    const wrapper = shallow<SubnetSelectInput>(<SubnetSelectInput {...INPUT_PROPS} />);
-    expect(wrapper.state().options.length).toBeGreaterThan(0);
+    const wrapper = render(<SubnetSelectInput {...INPUT_PROPS} />);
+    expect(wrapper.find('option').length).toBeGreaterThan(0);
   });
 });
 

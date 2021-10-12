@@ -1,7 +1,7 @@
-import { some } from 'lodash';
-import React from 'react';
+import * as React from 'react';
 
-import { Application, HelpField, ISubnet, Markdown } from '@spinnaker/core';
+import type { Application, ISubnet } from '@spinnaker/core';
+import { HelpField, Markdown } from '@spinnaker/core';
 
 import { SubnetSelectInput } from './SubnetSelectInput';
 import { AWSProviderSettings } from '../aws.settings';
@@ -15,7 +15,10 @@ export interface ISubnetSelectFieldProps {
   labelColumns: number;
   onChange: () => void;
   readOnly?: boolean;
-  provider?: 'aws' | 'titus';
+  // The default value to select when subnets change
+  defaultSubnetTypes?: string[];
+  // The recommended values; all other values will display a configurable warning
+  recommendedSubnetTypes?: string[];
   region: string;
   subnets: ISubnet[];
   showSubnetWarning?: boolean;
@@ -29,13 +32,24 @@ export class SubnetSelectField extends React.Component<ISubnetSelectFieldProps> 
   };
 
   public render() {
-    const { labelColumns, helpKey, component, provider, region, field, showSubnetWarning, ...otherProps } = this.props;
+    const {
+      component,
+      defaultSubnetTypes,
+      field,
+      helpKey,
+      labelColumns,
+      recommendedSubnetTypes,
+      region,
+      showSubnetWarning,
+      ...otherProps
+    } = this.props;
+
     const value = component[field];
-    const isRecommended = some(
-      AWSProviderSettings.serverGroups?.recommendedSubnets || [],
-      (subnet) => value && value.includes(subnet),
-    );
+    const recommended = recommendedSubnetTypes ?? AWSProviderSettings.serverGroups?.recommendedSubnets ?? [];
+    const defaults = defaultSubnetTypes ?? [AWSProviderSettings.defaults.subnetType];
+    const isRecommended = recommended.some((subnet) => value && value.includes(subnet));
     const subnetWarning = AWSProviderSettings.serverGroups?.subnetWarning;
+
     return (
       <div className="form-group">
         <div className={`col-md-${labelColumns} sm-label-right`}>
@@ -46,8 +60,8 @@ export class SubnetSelectField extends React.Component<ISubnetSelectFieldProps> 
             <SubnetSelectInput
               {...otherProps}
               inputClassName="form-control input-sm"
-              provider={provider ?? 'aws'}
               credentials={component.credentials}
+              defaultSubnetTypes={defaults}
               region={region}
               value={value}
               onChange={this.handleChange}

@@ -1,7 +1,7 @@
 import { isNumber } from 'lodash';
 import { robotToHuman } from '../../robotToHumanFilter/robotToHuman.filter';
 
-import { IValidator } from './validation';
+import type { IValidator } from './validation';
 
 const THIS_FIELD = 'This field';
 
@@ -85,6 +85,12 @@ const skipIfUndefined = (actualValidator: IValidator): IValidator => {
   };
 };
 
+const skipIfSpel = (actualValidator: IValidator): IValidator => {
+  return function skipIfSpel(val: any, label = THIS_FIELD) {
+    return typeof val === 'string' && val.includes('${') ? undefined : actualValidator(val, label);
+  };
+};
+
 const valueUnique = (list: any[], message?: string): IValidator => {
   return function valueUnique(val: any, label = THIS_FIELD) {
     list = list || [];
@@ -136,6 +142,7 @@ export const Validators = {
   minValue,
   oneOf,
   skipIfUndefined,
+  skipIfSpel,
   valueUnique,
 };
 

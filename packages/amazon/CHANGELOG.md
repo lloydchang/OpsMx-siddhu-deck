@@ -3,6 +3,185 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.11.0...@spinnaker/amazon@0.11.1) (2021-10-05)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+# [0.11.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.10.0...@spinnaker/amazon@0.11.0) (2021-10-01)
+
+
+### Features
+
+* **lambda:** add alias details to infra view ([#9730](https://github.com/spinnaker/deck/issues/9730)) ([d46a635](https://github.com/spinnaker/deck/commit/d46a635db529bf2adde4b92307ad15bf19bc3e86))
+
+
+
+
+
+# [0.10.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.16...@spinnaker/amazon@0.10.0) (2021-09-30)
+
+
+### Bug Fixes
+
+* bump @types/react to 16.14.10 ([bb62b99](https://github.com/spinnaker/deck/commit/bb62b991514c2a81fbdf467c01f3ce7467f71718))
+
+
+### Features
+
+* **aws/infrastructure:** Hide aws ad hoc infrastructure action buttons ([#9712](https://github.com/spinnaker/deck/issues/9712)) ([7202efd](https://github.com/spinnaker/deck/commit/7202efd54ad0b048d5c1f45c24162619b25be844))
+
+
+
+
+
+# [0.9.0](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.16...@spinnaker/amazon@0.9.0) (2021-09-30)
+
+
+### Bug Fixes
+
+* bump @types/react to 16.14.10 ([bb62b99](https://github.com/spinnaker/deck/commit/bb62b991514c2a81fbdf467c01f3ce7467f71718))
+
+
+### Features
+
+* **aws/infrastructure:** Hide aws ad hoc infrastructure action buttons ([#9712](https://github.com/spinnaker/deck/issues/9712)) ([7202efd](https://github.com/spinnaker/deck/commit/7202efd54ad0b048d5c1f45c24162619b25be844))
+
+
+
+
+
+## [0.8.16](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.15...@spinnaker/amazon@0.8.16) (2021-09-29)
+
+
+### Bug Fixes
+
+* **amazon:** Typo in command builder ([#9706](https://github.com/spinnaker/deck/issues/9706)) ([fd93d75](https://github.com/spinnaker/deck/commit/fd93d75984d33d5c67cdcf593bd2a0061e35970c))
+
+
+
+
+
+## [0.8.15](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.14...@spinnaker/amazon@0.8.15) (2021-09-24)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.8.14](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.13...@spinnaker/amazon@0.8.14) (2021-09-24)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.8.13](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.12...@spinnaker/amazon@0.8.13) (2021-09-23)
+
+
+### Bug Fixes
+
+* **amazon:** Undefined cloudprovider causing failure for scaling policy data ([#9694](https://github.com/spinnaker/deck/issues/9694)) ([5328de3](https://github.com/spinnaker/deck/commit/5328de3708427559289ce6aa44bf0a94c3c1d506))
+
+
+
+
+
+## [0.8.12](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.11...@spinnaker/amazon@0.8.12) (2021-09-23)
+
+
+### Bug Fixes
+
+* **aws/lambda:** Lists Event Source details for functions ([#9679](https://github.com/spinnaker/deck/issues/9679)) ([c311cd6](https://github.com/spinnaker/deck/commit/c311cd6daea60ac08eb616d8cdbf45c1dd20ff09))
+* **aws/lambda:** Lists Event Source details for functions ([#9683](https://github.com/spinnaker/deck/issues/9683)) ([ead61cd](https://github.com/spinnaker/deck/commit/ead61cde4bce43b77fe69181e763b4cb93f6f4f0))
+* **aws/lambda:** revert for typo and backport for event source ([#9682](https://github.com/spinnaker/deck/issues/9682)) ([e8d533d](https://github.com/spinnaker/deck/commit/e8d533d4fbfcc17365a5885c4536d5bc1f3d6749))
+
+
+
+
+
+## [0.8.11](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.10...@spinnaker/amazon@0.8.11) (2021-09-21)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.8.10](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.9...@spinnaker/amazon@0.8.10) (2021-09-18)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.8.9](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.8...@spinnaker/amazon@0.8.9) (2021-09-18)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.8.8](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.7...@spinnaker/amazon@0.8.8) (2021-09-16)
+
+
+### Bug Fixes
+
+* **amazon:** Use account or awsAccount for cloud metrics reader ([#9666](https://github.com/spinnaker/deck/issues/9666)) ([943efd7](https://github.com/spinnaker/deck/commit/943efd73fba2166c445c6a42569f38ec661ffb38))
+
+
+
+
+
+## [0.8.7](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.6...@spinnaker/amazon@0.8.7) (2021-09-15)
+
+**Note:** Version bump only for package @spinnaker/amazon
+
+
+
+
+
+## [0.8.6](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.5...@spinnaker/amazon@0.8.6) (2021-09-14)
+
+
+### Bug Fixes
+
+* **amazon:** Set default metric for new scaling policy ([#9655](https://github.com/spinnaker/deck/issues/9655)) ([63e55a9](https://github.com/spinnaker/deck/commit/63e55a988f5c8638d95ab324449d04c1cf40aeac))
+
+
+
+
+
+## [0.8.5](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.4...@spinnaker/amazon@0.8.5) (2021-09-07)
+
+
+### Bug Fixes
+
+* **amazon/serverGroup:** SubnetSelectField: Use default subnets from settings if no defaultSubnetTypes prop is passed ([#9643](https://github.com/spinnaker/deck/issues/9643)) ([1141bc5](https://github.com/spinnaker/deck/commit/1141bc569ca6c854614d1d51172c2545047adb5b))
+* **help:** Correct And to Add ([#9617](https://github.com/spinnaker/deck/issues/9617)) ([5f38547](https://github.com/spinnaker/deck/commit/5f38547b1d7ea45337dbbf545677f5f2c1431579))
+
+
+
+
+
+## [0.8.4](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.3...@spinnaker/amazon@0.8.4) (2021-09-06)
+
+
+### Bug Fixes
+
+* **titus/subnet:** Support default titus subnetType in SubnetSelectInput ([#9641](https://github.com/spinnaker/deck/issues/9641)) ([cfde788](https://github.com/spinnaker/deck/commit/cfde7889cf72986e53418b76ff8aa354cc6875a5))
+
+
+
+
+
 ## [0.8.3](https://github.com/spinnaker/deck/compare/@spinnaker/amazon@0.8.2...@spinnaker/amazon@0.8.3) (2021-09-02)
 
 **Note:** Version bump only for package @spinnaker/amazon

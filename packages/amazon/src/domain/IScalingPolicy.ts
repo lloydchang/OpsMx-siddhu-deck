@@ -1,8 +1,9 @@
-import { IMetricAlarmDimension } from '@spinnaker/core';
+import type { IMetricAlarmDimension } from '@spinnaker/core';
 
 export interface IScalingPolicyAlarm {
   alarmName?: string;
   alarmArn?: string;
+  alarmActionArns?: string[];
   metricName: string;
   namespace: string;
   statistic: AlarmStatisticType;

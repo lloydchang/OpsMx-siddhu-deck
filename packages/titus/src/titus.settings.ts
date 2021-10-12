@@ -1,4 +1,5 @@
-import { IProviderSettings, SETTINGS } from '@spinnaker/core';
+import type { IProviderSettings } from '@spinnaker/core';
+import { SETTINGS } from '@spinnaker/core';
 
 export interface ITitusProviderSettings extends IProviderSettings {
   defaults: {
@@ -6,6 +7,9 @@ export interface ITitusProviderSettings extends IProviderSettings {
     region?: string;
     subnetType?: string;
     iamProfile?: string;
+  };
+  serverGroups?: {
+    recommendedSubnets?: string[];
   };
   scalingActivities?: string[];
 }

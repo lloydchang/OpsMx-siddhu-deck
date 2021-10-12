@@ -2,12 +2,12 @@ import { isEmpty } from 'lodash';
 import { DateTime } from 'luxon';
 import React from 'react';
 
-import { IconNames } from '@spinnaker/presentation';
+import type { IconNames } from '@spinnaker/presentation';
 
-import { AllowedTimesDescription, AllowedTimesTitle } from './AllowedTimes';
-import { DependsOnTitle } from './DependsOn';
-import { ManualJudgementTitle } from './ManualJudgement';
-import { ConstraintStatus, IBaseConstraint, IConstraint, IManagedArtifactVersionEnvironment } from '../../domain';
+import { AllowedTimesDescription, getAllowedTimesStatus } from './AllowedTimes';
+import { getDependsOnStatus } from './DependsOn';
+import { getManualJudgementStatus } from './ManualJudgement';
+import type { ConstraintStatus, IBaseConstraint, IConstraint, IManagedArtifactVersionEnvironment } from '../../domain';
 import { BasePluginManager } from '../plugins/BasePluginManager';
 
 const UNKNOWN_CONSTRAINT_ICON = 'mdConstraintGeneric';
@@ -29,14 +29,29 @@ export interface IConstraintHandler<K = string> {
   /** The icon can be a string (from IconNames) or a partial map from statuses to IconNames */
   iconName: IconNames | { [status in ConstraintStatus | 'DEFAULT']?: IconNames };
 
-  /** Render function of the constraint title */
-  titleRender: React.ComponentType<{ constraint: RelaxedConstraint }>;
+  /** Stricter format of the title */
+  displayTitle?: {
+    /** A user friendly name of the constraint */
+    displayName: string;
+
+    /** A user friend text describing the status of the constraint */
+    displayStatus: (props: { constraint: RelaxedConstraint }) => string;
+  };
+
+  /** DEPRECATED - Render function of the constraint title. If displayTitle exists it takes precedence */
+  titleRender?: React.ComponentType<{ constraint: RelaxedConstraint }>;
 
   /** Optional render function of the constraint description */
   descriptionRender?: React.ComponentType<{ constraint: RelaxedConstraint }>;
 
   /** Display actions to override the constraint - (fail or pass) */
   overrideActions?: { [status in ConstraintStatus]?: IConstraintOverrideAction[] };
+
+  /** determines when to show the restart constraint button. By default, only when the status is FAIL  */
+  restartProps?: {
+    isVisible?: (props: { constraint: RelaxedConstraint }) => boolean;
+    displayName?: string;
+  };
 }
 
 class ConstraintsManager extends BasePluginManager<IConstraintHandler> {
@@ -49,11 +64,22 @@ class ConstraintsManager extends BasePluginManager<IConstraintHandler> {
   }
 
   renderTitle(constraint: IConstraint): React.ReactNode {
-    const Component = this.getHandler(constraint.type)?.titleRender;
+    const handler = this.getHandler(constraint.type);
+
+    if (handler?.displayTitle) {
+      return (
+        <>
+          {handler.displayTitle.displayName} - {handler.displayTitle.displayStatus({ constraint })}
+        </>
+      );
+    }
+
+    const Component = handler?.titleRender;
     if (Component) {
       return <Component constraint={constraint} />;
     }
-    return `${constraint.type} constraint - ${constraint.status}`;
+
+    return `${constraint.type} - ${constraint.status}`;
   }
 
   hasContent(constraint: IConstraint): boolean {
@@ -88,13 +114,29 @@ class ConstraintsManager extends BasePluginManager<IConstraintHandler> {
     const actions = this.getHandler(constraint.type)?.overrideActions;
     return actions?.[constraint.status];
   }
+
+  private defaultShowRestart = ({ constraint }: { constraint: RelaxedConstraint }) => {
+    return constraint.status === 'FAIL';
+  };
+
+  isRestartVisible(constraint: IConstraint): boolean {
+    const showRestartFunc = this.getHandler(constraint.type)?.restartProps?.isVisible || this.defaultShowRestart;
+    return showRestartFunc({ constraint });
+  }
+
+  getRestartDisplayName(constraint: IConstraint): string {
+    return this.getHandler(constraint.type)?.restartProps?.displayName || 'Reset';
+  }
 }
 
 const baseHandlers: Array<IConstraintHandler<IConstraint['type']>> = [
   {
     kind: 'allowed-times',
     iconName: { DEFAULT: 'mdConstraintAllowedTimes' },
-    titleRender: AllowedTimesTitle,
+    displayTitle: {
+      displayName: 'Deployment Window',
+      displayStatus: getAllowedTimesStatus,
+    },
     descriptionRender: AllowedTimesDescription,
     overrideActions: {
       FAIL: [
@@ -104,11 +146,20 @@ const baseHandlers: Array<IConstraintHandler<IConstraint['type']>> = [
         },
       ],
     },
+    restartProps: {
+      isVisible: () => false,
+    },
   },
   {
     kind: 'depends-on',
     iconName: { DEFAULT: 'mdConstraintDependsOn' },
-    titleRender: DependsOnTitle,
+    displayTitle: {
+      displayName: 'Depends on',
+      displayStatus: getDependsOnStatus,
+    },
+    restartProps: {
+      isVisible: () => false,
+    },
   },
   {
     kind: 'manual-judgement',
@@ -119,7 +170,10 @@ const baseHandlers: Array<IConstraintHandler<IConstraint['type']>> = [
       OVERRIDE_FAIL: 'manualJudgementRejected',
       DEFAULT: 'manualJudgement',
     },
-    titleRender: ManualJudgementTitle,
+    displayTitle: {
+      displayName: 'Manual Judgement',
+      displayStatus: getManualJudgementStatus,
+    },
     overrideActions: {
       PENDING: [
         {

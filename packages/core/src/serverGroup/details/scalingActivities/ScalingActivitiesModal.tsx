@@ -1,8 +1,9 @@
 import { forOwn, groupBy, sortBy } from 'lodash';
 import * as React from 'react';
 
-import { IServerGroup } from '../../../domain';
-import { IModalComponentProps, ModalBody, ModalFooter, ModalHeader, useData } from '../../../presentation';
+import type { IServerGroup } from '../../../domain';
+import type { IModalComponentProps } from '../../../presentation';
+import { ModalBody, ModalFooter, ModalHeader, useData } from '../../../presentation';
 import { ServerGroupReader } from '../../serverGroupReader.service';
 import { timestamp } from '../../../utils';
 import { Spinner } from '../../../widgets';
@@ -89,7 +90,7 @@ export const ScalingActivitiesModal = ({ dismissModal, serverGroup }: IScalingAc
             <p>{`No scaling activities found for ${serverGroup.name}.`}</p>
           </div>
         )}
-        {!loading && !error && scalingActivities.length && (
+        {!loading && !error && scalingActivities.length > 0 && (
           <div className="ScalingAcivitiesModalBody middle sp-margin-xl-yaxis">
             {scalingActivities.map((a, i) => (
               <div key={a.cause}>

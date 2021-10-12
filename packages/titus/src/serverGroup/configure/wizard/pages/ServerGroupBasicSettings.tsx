@@ -1,16 +1,15 @@
-import { Field, FormikErrors, FormikProps } from 'formik';
+import type { FormikErrors, FormikProps } from 'formik';
+import { Field } from 'formik';
 import React from 'react';
 
-import { SubnetSelectField } from '@spinnaker/amazon';
+import { AWSProviderSettings, SubnetSelectField } from '@spinnaker/amazon';
+import type { Application, IServerGroup, IWizardPageComponent } from '@spinnaker/core';
 import {
   AccountSelectInput,
   AccountTag,
-  Application,
   DeployingIntoManagedClusterWarning,
   DeploymentStrategySelector,
   HelpField,
-  IServerGroup,
-  IWizardPageComponent,
   NameUtils,
   ReactInjector,
   RegionSelectField,
@@ -19,7 +18,8 @@ import {
 } from '@spinnaker/core';
 import { DockerImageAndTagSelector, DockerImageUtils } from '@spinnaker/docker';
 
-import { ITitusServerGroupCommand } from '../../../configure/serverGroupConfiguration.service';
+import type { ITitusServerGroupCommand } from '../../../configure/serverGroupConfiguration.service';
+import { TitusProviderSettings } from '../../../../titus.settings';
 
 const isNotExpressionLanguage = (field: string) => field && !field.includes('${');
 
@@ -191,6 +191,11 @@ export class ServerGroupBasicSettings
 
     const customImage = values.imageId && values.imageId !== '${trigger.properties.imageName}';
 
+    const defaultSubnetTypes = []
+      .concat(TitusProviderSettings.defaults?.subnetType)
+      .concat(AWSProviderSettings.defaults?.subnetType)
+      .filter((x) => !!x);
+
     return (
       <div className="container-fluid form-horizontal">
         <DeployingIntoManagedClusterWarning app={app} formik={formik} />
@@ -233,9 +238,10 @@ export class ServerGroupBasicSettings
           helpKey="titus.serverGroup.subnet"
           labelColumns={3}
           onChange={this.onSubnetChange}
-          provider="titus"
           region={values.region}
           subnets={values.backingData.filtered.subnetPurposes}
+          defaultSubnetTypes={defaultSubnetTypes}
+          recommendedSubnetTypes={TitusProviderSettings.serverGroups?.recommendedSubnets}
           showSubnetWarning={true}
         />
         <div className="form-group">

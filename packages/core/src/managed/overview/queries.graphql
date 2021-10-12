@@ -94,7 +94,10 @@ query fetchApplication($appName: String!, $statuses: [MdArtifactStatusInEnvironm
   application(appName: $appName) {
     id
     name
-    account
+    config {
+      id
+      previewEnvironmentsConfigured
+    }
     environments {
       ...baseEnvironmentFields
       isDeleting
@@ -131,11 +134,42 @@ query fetchApplication($appName: String!, $statuses: [MdArtifactStatusInEnvironm
   }
 }
 
+query fetchCurrentVersion($appName: String!) {
+  application(appName: $appName) {
+    id
+    name
+    environments {
+      id
+      name
+      state {
+        artifacts {
+          id
+          name
+          reference
+          environment
+          versions(statuses: [CURRENT]) {
+            id
+            version
+            buildNumber
+            createdAt
+            gitMetadata {
+              commit
+              commitInfo {
+                sha
+                message
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 query fetchVersionsHistory($appName: String!, $limit: Int) {
   application(appName: $appName) {
     id
     name
-    account
     environments {
       ...baseEnvironmentFields
       state {
@@ -282,6 +316,7 @@ query fetchApplicationManagementData($appName: String!) {
       branch
       isEnabled
       link
+      manifestPath
     }
   }
 }
@@ -337,4 +372,12 @@ mutation DismissNotification($payload: MdDismissNotificationPayload!) {
 
 mutation ImportDeliveryConfig($application: String!) {
   importDeliveryConfig(application: $application)
+}
+
+mutation ToggleResourceManagement($payload: MdToggleResourceManagementPayload) {
+  toggleResourceManagement(payload: $payload)
+}
+
+mutation RestartConstraintEvaluation($payload: MdRestartConstraintEvaluationPayload!) {
+  restartConstraintEvaluation(payload: $payload)
 }

@@ -4,14 +4,11 @@ import { sortBy, toNumber } from 'lodash';
 import React from 'react';
 
 import { getEnvTitle } from '../environmentBaseElements/BaseEnvironment';
-import {
-  FetchVersionDocument,
-  FetchVersionQueryVariables,
-  MdArtifactStatusInEnvironment,
-} from '../graphql/graphql-sdk';
+import type { FetchVersionQueryVariables, MdArtifactStatusInEnvironment } from '../graphql/graphql-sdk';
+import { FetchVersionDocument } from '../graphql/graphql-sdk';
 import { GitLink } from '../overview/artifact/GitLink';
 import { Icon, Tooltip, useApplicationContextSafe } from '../../presentation';
-import { HistoryArtifactVersion, VersionData } from './types';
+import type { HistoryArtifactVersion, VersionData } from './types';
 import { TOOLTIP_DELAY_SHOW } from '../utils/defaults';
 import {
   BaseVersionMetadata,
@@ -76,7 +73,7 @@ const statusToText: { [key in VersionStatus]: string } = {
   VETOED: `Marked as bad`,
   PREVIOUS: `Previously deployed`,
   DEPLOYING: `Deploying`,
-  SKIPPED: 'Skipped',
+  SKIPPED: 'Not deployed',
 };
 
 const secondaryStatusToIcon: { [key in VersionStatus]?: string } = {
@@ -140,13 +137,14 @@ const EnvironmentBadge = ({ name, data: { isPreview, versions, gitMetadata, isPi
   const isCurrent = getIsCurrent(versions);
   const statusClassName = statusToClassName[isCurrent ? 'CURRENT' : statusSummary];
   const statusText = statusToText[statusSummary];
+
   // In case that the status is different than CURRENT (e.g. when you veto the CURRENT version), we want to show that as well
   const hasSecondaryStatus = Boolean(isCurrent && statusSummary !== 'CURRENT');
   const secondaryIcon = hasSecondaryStatus ? secondaryStatusToIcon[statusSummary] : undefined;
   return (
     <Tooltip
       delayShow={TOOLTIP_DELAY_SHOW}
-      value={isCurrent && status !== 'CURRENT' ? `Current & ${statusText}` : statusText}
+      value={isCurrent && statusSummary !== 'CURRENT' ? `Current & ${statusText}` : statusText}
     >
       <div
         className={classnames(

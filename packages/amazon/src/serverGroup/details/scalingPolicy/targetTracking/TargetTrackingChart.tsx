@@ -1,13 +1,12 @@
+import type { Dictionary } from 'lodash';
 import * as React from 'react';
-import { Dictionary } from 'lodash';
-import { Subject } from 'rxjs';
 
-import { ICloudMetricStatistics } from '@spinnaker/core';
-import { IAmazonServerGroup, IScalingPolicyAlarm, ITargetTrackingConfiguration } from '../../../../domain';
+import type { ICloudMetricStatistics } from '@spinnaker/core';
+
 import { MetricAlarmChart } from '../chart/MetricAlarmChart';
+import type { IAmazonServerGroup, IScalingPolicyAlarm, ITargetTrackingConfiguration } from '../../../../domain';
 
 export interface ITargetTrackingChartProps {
-  alarmUpdated?: Subject<void>;
   config: ITargetTrackingConfiguration;
   serverGroup: IAmazonServerGroup;
   unit?: string;
@@ -20,13 +19,7 @@ const predefinedMetricTypeMapping: Dictionary<string> = {
   ASGAverageNetworkOut: 'NetworkOut',
 };
 
-export const TargetTrackingChart = ({
-  alarmUpdated = new Subject<void>(),
-  config,
-  serverGroup,
-  unit,
-  updateUnit,
-}: ITargetTrackingChartProps) => {
+export const TargetTrackingChart = ({ config, serverGroup, updateUnit }: ITargetTrackingChartProps) => {
   const [alarm, setAlarm] = React.useState<IScalingPolicyAlarm>({
     alarmName: null,
     alarmArn: null,
@@ -69,18 +62,10 @@ export const TargetTrackingChart = ({
   }, [config]);
 
   const onChartLoaded = (stats: ICloudMetricStatistics) => {
-    if (unit) {
+    if (updateUnit) {
       updateUnit(stats.unit);
     }
-    alarmUpdated?.next();
   };
 
-  return (
-    <MetricAlarmChart
-      alarm={alarm}
-      alarmUpdated={alarmUpdated}
-      onChartLoaded={onChartLoaded}
-      serverGroup={serverGroup}
-    />
-  );
+  return <MetricAlarmChart alarm={alarm} onChartLoaded={onChartLoaded} serverGroup={serverGroup} />;
 };

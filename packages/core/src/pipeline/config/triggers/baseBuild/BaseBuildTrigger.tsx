@@ -1,9 +1,9 @@
-import { FormikProps } from 'formik';
+import type { FormikProps } from 'formik';
 import React from 'react';
 
 import { RefreshableReactSelectInput } from '../RefreshableReactSelectInput';
 import { BuildServiceType, IgorService } from '../../../../ci/igor.service';
-import { IBuildTrigger } from '../../../../domain';
+import type { IBuildTrigger } from '../../../../domain';
 import { MapEditorInput } from '../../../../forms';
 import { HelpField } from '../../../../help';
 import { FormikFormField, TextInput, useLatestPromise } from '../../../../presentation';
@@ -71,12 +71,14 @@ export function BaseBuildTrigger(buildTriggerProps: IBaseBuildTriggerConfigProps
         )}
       />
 
-      <FormikFormField
-        name="propertyFile"
-        label="Property File"
-        help={<HelpField id={`pipeline.config.${type}.trigger.propertyFile`} />}
-        input={(props) => <TextInput {...props} />}
-      />
+      {buildTriggerType !== BuildServiceType.Travis && (
+        <FormikFormField
+          name="propertyFile"
+          label="Property File"
+          help={<HelpField id={`pipeline.config.${type}.trigger.propertyFile`} />}
+          input={(props) => <TextInput {...props} />}
+        />
+      )}
 
       <FormikFormField
         name="payloadConstraints"
