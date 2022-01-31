@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.167](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.166...@spinnaker/cloudfoundry@0.0.167) (2022-01-22)
+
+**Note:** Version bump only for package @spinnaker/cloudfoundry
+
+
+
+
+
+## [0.0.166](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.165...@spinnaker/cloudfoundry@0.0.166) (2022-01-12)
+
+**Note:** Version bump only for package @spinnaker/cloudfoundry
+
+
+
+
+
+## [0.0.165](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.164...@spinnaker/cloudfoundry@0.0.165) (2021-12-11)
+
+**Note:** Version bump only for package @spinnaker/cloudfoundry
+
+
+
+
+
+## [0.0.164](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.163...@spinnaker/cloudfoundry@0.0.164) (2021-12-08)
+
+
+### Bug Fixes
+
+* **cf:** fix casing of Cloud Foundry across components ([#9784](https://github.com/spinnaker/deck/issues/9784)) ([0e13bf0](https://github.com/spinnaker/deck/commit/0e13bf0230dc557eb3a054a3a07dbe2ca3dfccc8))
+
+
+
+
+
+## [0.0.163](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.162...@spinnaker/cloudfoundry@0.0.163) (2021-12-01)
+
+**Note:** Version bump only for package @spinnaker/cloudfoundry
+
+
+
+
+
+## [0.0.162](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.161...@spinnaker/cloudfoundry@0.0.162) (2021-11-12)
+
+**Note:** Version bump only for package @spinnaker/cloudfoundry
+
+
+
+
+
+## [0.0.161](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.160...@spinnaker/cloudfoundry@0.0.161) (2021-11-03)
+
+**Note:** Version bump only for package @spinnaker/cloudfoundry
+
+
+
+
+
 ## [0.0.160](https://github.com/spinnaker/deck/compare/@spinnaker/cloudfoundry@0.0.159...@spinnaker/cloudfoundry@0.0.160) (2021-10-05)
 
 **Note:** Version bump only for package @spinnaker/cloudfoundry

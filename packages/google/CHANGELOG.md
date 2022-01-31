@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.6](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.1.5...@spinnaker/google@0.1.6) (2022-01-22)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.1.5](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.1.4...@spinnaker/google@0.1.5) (2022-01-12)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.1.4](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.1.3...@spinnaker/google@0.1.4) (2021-12-11)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.1.3](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.1.2...@spinnaker/google@0.1.3) (2021-12-08)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.1.2](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.1.1...@spinnaker/google@0.1.2) (2021-12-01)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+## [0.1.1](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.1.0...@spinnaker/google@0.1.1) (2021-11-12)
+
+**Note:** Version bump only for package @spinnaker/google
+
+
+
+
+
+# [0.1.0](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.77...@spinnaker/google@0.1.0) (2021-11-03)
+
+
+### Features
+
+* **gce:** Enabled extended memory feature to define reusable custom types ([#9721](https://github.com/spinnaker/deck/issues/9721)) ([e108e95](https://github.com/spinnaker/deck/commit/e108e953473252f1695cfca30f81817aa3e13575))
+
+
+
+
+
 ## [0.0.77](https://github.com/spinnaker/deck/compare/@spinnaker/google@0.0.76...@spinnaker/google@0.0.77) (2021-10-05)
 
 **Note:** Version bump only for package @spinnaker/google

@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.21](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.20...@spinnaker/azure@0.3.21) (2022-01-22)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.3.20](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.19...@spinnaker/azure@0.3.20) (2022-01-12)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.3.19](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.18...@spinnaker/azure@0.3.19) (2021-12-11)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.3.18](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.17...@spinnaker/azure@0.3.18) (2021-12-08)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.3.17](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.16...@spinnaker/azure@0.3.17) (2021-12-01)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.3.16](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.15...@spinnaker/azure@0.3.16) (2021-11-12)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
+## [0.3.15](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.14...@spinnaker/azure@0.3.15) (2021-11-03)
+
+**Note:** Version bump only for package @spinnaker/azure
+
+
+
+
+
 ## [0.3.14](https://github.com/spinnaker/deck/compare/@spinnaker/azure@0.3.13...@spinnaker/azure@0.3.14) (2021-10-05)
 
 **Note:** Version bump only for package @spinnaker/azure

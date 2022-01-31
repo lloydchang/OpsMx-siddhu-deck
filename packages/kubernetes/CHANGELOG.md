@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.9](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.8...@spinnaker/kubernetes@0.2.9) (2022-01-22)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.2.8](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.7...@spinnaker/kubernetes@0.2.8) (2022-01-12)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.2.7](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.6...@spinnaker/kubernetes@0.2.7) (2021-12-11)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.2.6](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.5...@spinnaker/kubernetes@0.2.6) (2021-12-08)
+
+
+### Bug Fixes
+
+* **kubernetes:** add custom links to instance details ([#9702](https://github.com/spinnaker/deck/issues/9702)) ([e68b59c](https://github.com/spinnaker/deck/commit/e68b59c9a771401a235eb55d23e7408c3e6e6537))
+
+
+
+
+
+## [0.2.5](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.4...@spinnaker/kubernetes@0.2.5) (2021-12-01)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.2.4](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.3...@spinnaker/kubernetes@0.2.4) (2021-11-12)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
+## [0.2.3](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.2...@spinnaker/kubernetes@0.2.3) (2021-11-03)
+
+**Note:** Version bump only for package @spinnaker/kubernetes
+
+
+
+
+
 ## [0.2.2](https://github.com/spinnaker/deck/compare/@spinnaker/kubernetes@0.2.1...@spinnaker/kubernetes@0.2.2) (2021-10-05)
 
 **Note:** Version bump only for package @spinnaker/kubernetes
